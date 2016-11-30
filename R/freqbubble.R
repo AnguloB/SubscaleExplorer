@@ -49,7 +49,7 @@ freqbubble<-function (df, group=FALSE,color = "#666699", title = "", x.lab = "",
   else{
     if(group==TRUE)
     {
-      if(!is.list(df)==TRUE){
+      if((!is.list(df))==TRUE){
         warning("There is no group in object"))
 }
       df1<-df[1]
