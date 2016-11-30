@@ -1,10 +1,10 @@
-freqbubble<-function (df, group=TRUE,color = "#666699", title = "", x.lab = "", y.lab = "Response", 
+freqbubble<-function (df, group=FALSE,color = "#666699", title = "", x.lab = "", y.lab = "Response", 
                        angle = 45, alpha = 0.3, lsize = 12,  color1 = "black", color2 = "#9999CC", group1 = "Group1", group2 = "Group2") 
   
 {
   require(ggplot2)
   require(plyr)
-  if (is.null(group)) {
+  if (group=FALSE) {
     z <<- melt(df, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
     if (any(is.na(z$value))) {
