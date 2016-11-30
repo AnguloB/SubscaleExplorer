@@ -2,28 +2,30 @@
 \alias{SubscaleExplorer-package}
 \alias{SubscaleExplorer}
 \docType{package}
-\title{SubscaleExplorer Information}
+\title{
 \packageTitle{SubscaleExplorer}
+}
 \description{
 \packageDescription{SubscaleExplorer}
-}\details{}
+}
+\details{
 
+The DESCRIPTION file:
 \packageDESCRIPTION{SubscaleExplorer}
 \packageIndices{SubscaleExplorer}
-~~ An overview of how to use the package, including ~~
-~~ the most important functions ~~
-
+~~ An overview of how to use the package, including the most ~~
+~~ important functions ~~
+}
 \author{
 \packageAuthor{SubscaleExplorer}
 
-Maintainer: \packageMaintainer{}
+Maintainer: \packageMaintainer{SubscaleExplorer}
 }
 \references{
 ~~ Literature or other references for background information ~~
 }
-~~ Optionally other standard keywords, one per ~~
-~~ line, from file KEYWORDS in the R documentation ~~
-~~ directory ~~
+~~ Optionally other standard keywords, one per line, from file ~~
+~~ KEYWORDS in the R documentation directory ~~
 \keyword{ package }
 \seealso{
 ~~ Optional links to other man pages, e.g. ~~
