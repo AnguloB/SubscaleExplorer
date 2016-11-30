@@ -1,7 +1,7 @@
 uniqueValues <-
 function(df)
-require(reshape2)
 {
+  require(reshape2)
   #calculate unique values
   
   p<-rapply(df,function(x)length(unique(x)))
