@@ -3,18 +3,17 @@
 \alias{SubscaleExplorer}
 \docType{package}
 \title{SubscaleExplorer Information}
-\packageTitle{SubscaleExplorer}
 \description{
-\packageDescription{SubscaleExplorer}
-}\details{}
+  \packageDescription{SubscaleExplorer}
+}
+\details{}
 
 \packageDESCRIPTION{SubscaleExplorer}
 \packageIndices{SubscaleExplorer}
 \author{
-\packageAuthor{SubscaleExplorer}
-
-\packageMaintainer{SubscaleExplorer}
-}
+    \packageAuthor{SubscaleExplorer}
+    \packageMaintainer{SubscaleExplorer}
+   }
 \references{}
 
 \keyword{ package }
