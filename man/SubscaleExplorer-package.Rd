@@ -13,13 +13,11 @@
 \author{
 \packageAuthor{SubscaleExplorer}
 
-Maintainer: \packageMaintainer{SubscaleExplorer}
+\packageMaintainer{SubscaleExplorer}
 }
 \references{}
 
 \keyword{ package }
-\seealso{
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
+\seealso{}
 \examples{
 }
