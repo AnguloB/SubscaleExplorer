@@ -1,0 +1,87 @@
+\name{boxPlot}
+\alias{boxPlot}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{
+Produce a quick boxplot }
+\description{
+Produce a quick boxplot giving a data frame or matrix and if wanted a vector with group membership.}
+\usage{
+boxPlot(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", 
+group1="Group1", group2="Group2", legendLab="Group", title1="")
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{df}{
+Data frame or matrix}
+  \item{group}{
+A vector same length as df (p.ex df$group) Default (NULL)
+}
+  \item{same}{
+Should the plot be printed (default TRUE) or should appear a pdf in working directory (each page presents a single group)
+}
+  \item{missing}{
+If FALSE, na.omit is used before ploting default TRUE
+}
+\item{color}{
+color when group is NULL (default "#F4A460")
+}
+\item{group1}{
+Label for group1 (default="Group1")
+}
+\item{group2}{
+Label for group2 (default="Group2")
+}
+\item{legendLab}{
+Legend title label (default="Group")}
+\item{title1}{
+Plot title (default=NULL)
+}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+
+\item{plot }{Single plot }
+\item{pdf }{One plot per single group (same=FALSE)}
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+ \code{\link{violinPlot}},  \code{\link{ggplot2}}
+}
+\examples{
+#generate some random data
+x<-1:5
+y<-1:2
+v1<-sample(x,80,replace=TRUE)
+v2<-sample(x,80,replace=TRUE)
+v3<-sample(x,80,replace=TRUE)
+v4<-sample(x,80,replace=TRUE)
+gender<- sample(y, 80, replace=TRUE)
+df <- data.frame(v1, v2,v3,v4)
+
+
+#Run boxplot
+boxPlot(df)
+
+#Run boxplot by group 
+boxPlot(df, group=gender, group1="Male", group2="Female", legendLab="Sex")
+
+#Run a boxplot per group (pdf)
+boxPlot(df, group=gender, same=FALSE)
+
+
+}
+
+
+\keyword{ boxplot }
