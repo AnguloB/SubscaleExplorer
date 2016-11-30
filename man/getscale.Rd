@@ -5,7 +5,6 @@
 %%  ~~function to do ... ~~
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
 getscale(df, file, column)
@@ -25,11 +24,7 @@ sheet number}
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -48,7 +43,7 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \examples{
 #reference is an excel sheet with a colum "VariablesInput" which contain variable name of  the data frame
 getscale(df, "reference.xlsx", column="Scales")
-a<-unlist(Scales)
+a<-unlist(output)
 a<-data.frame((vapply(output,unlist,unlist(output[[1]]))))
 
 for(i in 1:ncol(a)){
