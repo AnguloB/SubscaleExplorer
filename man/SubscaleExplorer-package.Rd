@@ -7,9 +7,6 @@
   \packageDescription{SubscaleExplorer}
 }
 \details{}
-
-\packageDESCRIPTION{SubscaleExplorer}
-\packageIndices{SubscaleExplorer}
 \author{
     \packageAuthor{SubscaleExplorer}
     \packageMaintainer{SubscaleExplorer}
