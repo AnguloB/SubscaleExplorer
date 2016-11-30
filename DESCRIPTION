@@ -2,9 +2,8 @@ Package: SubscaleExplorer
 Title: Scale explorer and management
 Version: 0.1
 Date: 2016-12-01
-Authors@R: c(person(given = "Ariadna", family = "Angulo-Brunet", role = c("aut",
-        "cre"), email = "ariadna.angulo@uab.cat"),person(given = "Carme", family = "Angulo-Brunet", role = 
-        "ctb"))
+Authors@R: c(person(given = "Ariadna", family = "Angulo-Brunet", role = c("aut","cre"), email = "ariadna.angulo@uab.cat"),
+person(given = "Carme", family = "Angulo-Brunet", role = "ctb"))
 Maintainer: Ariadna Angulo-Brunet <ariadna.angulo@uab.cat>
 Description: Functions to explore scales and subscales of a questionnaire
 License: GPL(>=2)
