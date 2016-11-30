@@ -6,7 +6,7 @@ freqbubble<-function (df, group=FALSE,color = "#666699", title = "", x.lab = "",
   require(plyr)
   if (group==FALSE) {
     if((is.list(df))==TRUE){
-      warning("There is a group in selected object")
+      warning("There is a group in selected object, set group=TRUE")
     }
     z <<- melt(df, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
@@ -53,7 +53,7 @@ freqbubble<-function (df, group=FALSE,color = "#666699", title = "", x.lab = "",
     if(group==TRUE)
     {
       if((!is.list(df))==TRUE){
-        warning("There is no group in object")
+        warning("There is no group in object, set group=FALSE")
 }
       df1<-df[1]
       df2<-df[2]
