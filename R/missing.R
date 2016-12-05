@@ -1,4 +1,4 @@
-missing<-
+missingness<-
 function(df, group=NULL){
     require(mice)
     table1<-function(f){

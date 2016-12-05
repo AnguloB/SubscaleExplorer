@@ -16,13 +16,13 @@ frequencies(df, group = NULL, missing = TRUE, prop = FALSE, round1 = 2)
     Dataframe or matrix
 }
   \item{group}{
-A vector same length as df (p.ex df$group) Default (NULL)} 
+A vector same length as df (e.g, df$group) Default (NULL)} 
   \item{missing}{
-Logical. TRUE (default) total missing displayed}
+Logical. TRUE (default) missing displayed}
   \item{prop}{
 Logical. If TRUE proportions are displayed instead of frequencies}
   \item{round1 }{
-Rounds values Default=3}
+Rounds values Default=2}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

@@ -15,7 +15,7 @@ design_effect_icc(df, cluster)
 dataframe or matrix 
 }
   \item{cluster}{
-vector same length as df (e.g Data$age)
+vector same length as df (e.g Data$team)
 }
 }
 \details{

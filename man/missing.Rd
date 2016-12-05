@@ -1,12 +1,12 @@
-\name{missing}
-\alias{missing}
+\name{missingness}
+\alias{missingness}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Missing Analysis}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-missing(df, group = NULL)
+missingness(df, group = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -50,9 +50,9 @@ v4<-sample(x,80,replace=TRUE)
 gender<- sample(y, 80, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
-missing(df)
+missingness(df)
 
 #by group
-missing(df, group=gender)
+missingness(df, group=gender)
 }
 
