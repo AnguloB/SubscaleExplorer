@@ -45,13 +45,13 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \examples{
 #generate  some random data
 x<-1:5
-y<-1:2
-v1<-sample(x,80,replace=TRUE)
-v2<-sample(x,80,replace=TRUE)
-v3<-sample(x,80,replace=TRUE)
-v4<-sample(x,80,replace=TRUE)
-gender<- sample(y, 80, replace=TRUE)
+y<-1:10
+v1<-sample(x,800,replace=TRUE)
+v2<-sample(x,800,replace=TRUE)
+v3<-sample(x,800,replace=TRUE)
+v4<-sample(x,800,replace=TRUE)
+team<- sample(y, 80, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
-designEffectICC(df, gender)
+designEffectICC(df, team)
 }
