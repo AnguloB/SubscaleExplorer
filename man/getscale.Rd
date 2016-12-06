@@ -47,6 +47,8 @@ a<-unlist(output)
 a<-data.frame((vapply(output,unlist,unlist(output[[1]]))))
 
 for(i in 1:ncol(a)){
-  assign(Lev_Escala[i], a[[i]])
+  assign(names(output)[i], a[[i]])
+#remove innecessary objects
+#rm(a,i, output)
 }
 }
