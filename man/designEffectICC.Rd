@@ -1,5 +1,5 @@
-\name{design_effect_icc}
-\alias{design_effect_icc}
+\name{designEffectICC}
+\alias{designEffectICC}
 
 \title{
 Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
@@ -7,7 +7,7 @@ Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
 \description{
 Calculate design effect and ICC for multilevel analysis}
 \usage{
-design_effect_icc(df, cluster)
+designEffectICC(df, cluster)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -53,5 +53,5 @@ v4<-sample(x,80,replace=TRUE)
 gender<- sample(y, 80, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
-design_effect_icc(df, gender)
+designEffectICC(df, gender)
 }

@@ -12,7 +12,7 @@ For the description of quantitative data we first recommend the use of the psych
 
 For ordinal or categorical data first \code{\link{frecuencies}} should be used. This function does frequencies or proportions, with or withour missing values. With this object we can obtain a plot with frebubble function. 
 
-\code{\link{uniqueValues}} function can be used in quantittive and ordinal data. If used with quantitative data can be difficult to interpret by group. If there are different unique_values across groups can make \code{\link{design_effect_icc}} fail.
+\code{\link{uniqueValues}} function can be used in quantittive and ordinal data. If used with quantitative data can be difficult to interpret by group. If there are different unique_values across groups can make \code{\link{designEffectICC}} fail.
 
 }
 \author{

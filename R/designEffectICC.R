@@ -1,4 +1,4 @@
-design_effect_icc <-
+designEffectICC <-
 function(df, cluster){
   require(multilevel)  
   require (nlme)
