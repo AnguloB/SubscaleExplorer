@@ -40,7 +40,7 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
- \code{\link{ICC1}}, \code{\link{mult.icc}}
+ \code{\link{ICC1}}, \code{\link{mult.icc}, \code{\link{designEffectICC}}
 }
 \examples{
 #generate  some random data
