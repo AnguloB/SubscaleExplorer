@@ -23,6 +23,5 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \keyword{ package }
 \seealso{
 \code{\link{psych}}, \code{\link{ggplot2}}, \code{\link{mice}}}
-}
 \examples{
 }
