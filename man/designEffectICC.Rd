@@ -50,7 +50,7 @@ v1<-sample(x,800,replace=TRUE)
 v2<-sample(x,800,replace=TRUE)
 v3<-sample(x,800,replace=TRUE)
 v4<-sample(x,800,replace=TRUE)
-team<- sample(y, 80, replace=TRUE)
+team<- sample(y, 800, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
 designEffectICC(df, team)

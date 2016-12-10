@@ -10,7 +10,7 @@ Sometimes when working with many variables it is necessary to deal with grouping
 
 For the description of quantitative data we first recommend the use of the psych package to obtain descriptive statistics (\code{\link{describeBy}}), the mahalanobis distance (\code{\link{mahalanobis}}) and mardia’s test for multivariate normality. With \code{\link{boxPlot}} and \code{\link{violinPlot}} a graphical description can be obtained. The violinPlot also includes a boxplot inside. 
 
-For ordinal or categorical data first \code{\link{frecuencies}} should be used. This function does frequencies or proportions, with or withour missing values. With this object we can obtain a plot with \code{\link{freqbubble} if are independent groups or with \code{\link{freqbubbleRepeated} repeated measures.
+For ordinal or categorical data first \code{\link{frecuencies}} should be used. This function does frequencies or proportions, with or withour missing values. With this object we can obtain a plot with \code{\link{freqbubble}} if are independent groups or with \code{\link{freqbubbleRepeated}} repeated measures.
 
 \code{\link{uniqueValues}} function can be used in quantittive and ordinal data. If used with quantitative data can be difficult to interpret by group. If there are different unique_values across groups can make \code{\link{designEffectICC}} fail.
 
