@@ -1,17 +1,15 @@
-violinPlot <-
-  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", group1="Group1", group2="Group2", legendLab="Group", title1="Title"){
-    
-    require(ggplot2)
-    require(reshape2)
-    require(plyr)
-    theme_nogrid <- function (base_size = 12, base_family = "")  #Default ggplot theme 
-    {theme_bw(base_size = base_size, base_family = base_family) %+replace% 
+violinPlot1 <-
+  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460",labList=NULL, legendLab="Group", title1="Title"){
+    theme_nogrid <- function (base_size = 12, base_family = "")
+    {theme_bw(base_size = base_size, base_family = base_family) %+replace%
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
-        theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9, 
-                                        
+        theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
-    
-    
+    if(is.null(labList)){
+      labList1<-levels(factor(group))
+    }else
+    {labList1<-labList}
+
     if(missing==TRUE)
     { 
       df3<<-data.frame(melt(df))} #dataframe with missings to be ploted
@@ -33,7 +31,7 @@ violinPlot <-
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df))) 
         group <- df[, group]
       g<-data.frame(group,df)
-      g$group<-factor(g$group,labels = c(group1, group2))
+      g$group<-factor(g$group,labels = labList1)
       y<-melt(g)
       if(missing==TRUE)   #data with missing when there is a group
       { 

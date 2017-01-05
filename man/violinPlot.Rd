@@ -21,11 +21,8 @@ If you want one plot with all groups set to TRUE, otherwise FALSE}
  \item{color}{
 color when group is NULL (default "#F4A460")
 }
-\item{group1}{
-Label for group1 (default="Group1")
-}
-\item{group2}{
-Label for group2 (default="Group2")
+\item{labList}{
+default NULL uses factor levels as group membership label.Else list (p.eg c("group1", "group2"))
 }
 \item{legendLab}{
 Legend title label (default="Group")}

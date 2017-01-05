@@ -1,6 +1,5 @@
-
 boxPlot <-
-  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", group1="Group1", group2="Group2", legendLab="Group", title1=""){
+  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", labList=NULL, legendLab="Group", title1=""){
     require(ggplot2)
     require(reshape2)
     require(plyr)
@@ -9,6 +8,11 @@ boxPlot <-
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
         theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
+    if(is.null(labList)){
+      labList1<-levels(factor(group))
+    }else
+    {labList1<-labList}
+    
     if(missing==TRUE)
     {
       df3<-data.frame(melt(df))}
@@ -28,7 +32,7 @@ boxPlot <-
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df)))
         group <- df[, group]
       g<-data.frame(group,df)
-      g$group<-factor(g$group,labels = c(group1, group2))
+      g$group<-factor(g$group,labels = labList)
       
       y<-melt(g)
       if(missing==TRUE)
@@ -44,7 +48,8 @@ boxPlot <-
           labs(list(title = title1))+
           theme_nogrid()
         print(p)}
-      else{if(same==FALSE){
+      else
+      {if(same==FALSE){
         plot1 <- function(df){
           p<-ggplot(df, aes(x=variable, y=value))+geom_boxplot(fill="#666699", colour="black", alpha=0.3)+ggtitle(df$group)+
             scale_y_continuous(as.numeric(names(table(df$value))))+ xlab("")+theme_nogrid()

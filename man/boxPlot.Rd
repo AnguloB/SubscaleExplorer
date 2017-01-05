@@ -22,14 +22,11 @@ Should the plot be printed (default TRUE) or should appear a pdf in working dire
   \item{missing}{
 If FALSE, na.omit is used before ploting default TRUE
 }
+\item{labList}{
+default NULL uses factor levels as group membership label.Else list (p.eg c("group1", "group2"))
+}
 \item{color}{
 color when group is NULL (default "#F4A460")
-}
-\item{group1}{
-Label for group1 (default="Group1")
-}
-\item{group2}{
-Label for group2 (default="Group2")
 }
 \item{legendLab}{
 Legend title label (default="Group")}
@@ -75,7 +72,7 @@ df <- data.frame(v1, v2,v3,v4)
 boxPlot(df)
 
 #Run boxplot by group 
-boxPlot(df, group=gender, group1="Male", group2="Female", legendLab="Sex")
+boxPlot(df, group=gender, labList=c("Male", "Female"), legendLab="Gender", title1="Boxplot by gender")
 
 #Run a boxplot per group (pdf)
 boxPlot(df, group=gender, same=FALSE)
