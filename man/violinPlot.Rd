@@ -56,7 +56,7 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \examples{
 #generate some random data
 x<-1:5
-y<-1:2
+y<-c("Female", "Male")
 v1<-sample(x,80,replace=TRUE)
 v2<-sample(x,80,replace=TRUE)
 v3<-sample(x,80,replace=TRUE)
@@ -68,5 +68,10 @@ df <- data.frame(v1, v2,v3,v4)
 violinPlot(df)
 
 #change color 
-violinPlot(df, color="green")}
+violinPlot(df, color="green")
+
+#by group 
+violinPlot(df, gender)
+
+}
 
