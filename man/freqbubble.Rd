@@ -80,7 +80,7 @@ freqbubble(obj)
 
 #group=NULL
 obj<-frequencies(df, gender, prop=TRUE)
-freqbubble(obj, group="TRUE")
+freqbubble(obj, group="TRUE", group1="Female", group2="Male")
 
 }
  

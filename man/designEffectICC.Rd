@@ -7,15 +7,18 @@ Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
 \description{
 Calculate design effect and ICC for multilevel analysis}
 \usage{
-designEffectICC(df, cluster)
+designEffectICC(df, group=group, data=df, round1=3)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
 dataframe or matrix 
 }
-  \item{cluster}{
+  \item{group}{
 vector same length as df (e.g Data$team)
+}
+\item{round1}{
+round, default to 3 
 }
 }
 \details{
@@ -53,5 +56,5 @@ v4<-sample(x,800,replace=TRUE)
 team<- sample(y, 800, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
-designEffectICC(df, team)
+designEffectICC(df, team, data=df)
 }

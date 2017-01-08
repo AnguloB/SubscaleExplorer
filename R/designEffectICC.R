@@ -1,18 +1,18 @@
-designEffectICC <-
-function(df, cluster){
-  require(multilevel)  
-  require (nlme)
-  require (reshape2)
-  v<-melt(table(cluster))
-  n<-mean(v$value)
-  icc12<-mult.icc(df, cluster)
-  icc1<-icc12$ICC1
-  ICC11<-round(icc1,3)
-  effect <-1+(n-1)*icc1
-  Df <- data.frame(icc12$Variable, ICC11, effect)
-  names(Df) <- c("variable", "ICC1", "design_effect")
-  print("n ( mean cluster size  when groups are different size)")
-  print(n)
-  print(Df)
-  return(Df)
-}
+designEffectICC <-function(df, group=group, data=df, round1=3)
+  {
+    v <- melt(table(group))
+    n <- mean(v$value)
+    icc1<-function(x, group1=group, data1=data){
+      out1<-aov(x ~as.factor(group1),data=data1)
+      output<-ICC1(out1)
+    }
+    a<-as.matrix(apply(df,2,icc1))
+    effect <- 1 + (n - 1) * a
+    results<-round(data.frame(a, effect), round1)
+    names(results)<- c( "ICC1", "designEffect")
+    print("n ( mean cluster size  when groups are different size)")
+    print(n)
+    return(results)
+  }
+
+
