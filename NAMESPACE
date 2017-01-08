@@ -1,2 +1,2 @@
 exportPattern("^[[:alpha:]]+")
-import(ggplot2, reshape2, nlme, psych, multilevel, plyr, readxl, mice, gtable)
+import(psych, reshape2, nlme, ggplot2, multilevel, plyr, readxl, mice, gtable)
