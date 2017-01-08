@@ -1,5 +1,7 @@
 designEffectICC <-function(df, group=group, data=df, round1=3)
   {
+  require(multilevel)
+  require(reshape2)
     v <- melt(table(group))
     n <- mean(v$value)
     icc1<-function(x, group1=group, data1=data){

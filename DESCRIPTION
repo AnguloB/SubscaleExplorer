@@ -8,4 +8,4 @@ Description: Functions to explore scales and subscales of a questionnaire
 License: GPL(>=2)
 Depends: R (>= 3.1.0)
 LazyData: yes
-Imports: psych, reshape2,  nlme, ggplot2, multilevel, plyr, readxl, mice, gtable
+Imports: reshape2,  nlme, ggplot2, multilevel, plyr, readxl, mice, gtable
