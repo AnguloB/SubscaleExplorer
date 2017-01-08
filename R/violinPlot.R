@@ -1,4 +1,4 @@
-violinPlot1 <-
+violinPlot <-
   function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460",labList=NULL, legendLab="Group", title1="Title"){
     theme_nogrid <- function (base_size = 12, base_family = "")
     {theme_bw(base_size = base_size, base_family = base_family) %+replace%
@@ -50,8 +50,8 @@ violinPlot1 <-
           theme_nogrid()
         print(p)}
       else{if(same==FALSE){ #produces a pdf with a page per group
-        plot1 <- function(df){
-          p<-ggplot(df, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=0.3)+ggtitle(df$group)+ 
+        plot1 <- function(df,color1=color){
+          p<-ggplot(df, aes(x=variable, y=value))+geom_violin(fill=color1, colour="black", alpha=0.3)+ggtitle(df$group)+ 
             scale_y_continuous(as.numeric(names(table(y1$value))))+ xlab("")+geom_boxplot(width=.1)+theme_nogrid()
           print(p)}
         {pdf("violinJ3.pdf")   #pdf name file

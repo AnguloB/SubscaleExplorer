@@ -50,11 +50,11 @@ boxPlot <-
         print(p)}
       else
       {if(same==FALSE){
-        plot1 <- function(df){
-          p<-ggplot(df, aes(x=variable, y=value))+geom_boxplot(fill="#666699", colour="black", alpha=0.3)+ggtitle(df$group)+
+        plot1 <- function(df, color1=color){
+          p<-ggplot(df, aes(x=variable, y=value))+geom_boxplot(fill=color1, colour="black", alpha=0.3)+ggtitle(df$group)+
             scale_y_continuous(as.numeric(names(table(df$value))))+ xlab("")+theme_nogrid()
           print(p)}
-        {pdf("boxplotJ3.pdf")
+        {pdf("boxplotOutput.pdf")
           d_ply(y1, .(group),plot1)
           dev.off()}
       }}
