@@ -1,5 +1,5 @@
-\name{designEffectICC}
-\alias{designEffectICC}
+\name{designEffect}
+\alias{designEffect}
 
 \title{
 Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
@@ -7,22 +7,24 @@ Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
 \description{
 Calculate design effect and ICC for multilevel analysis}
 \usage{
-designEffectICC(df, group=group, data=df, round1=3)
+designEffect(df, cluster=cluster, data=df, round1=3)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
 dataframe or matrix 
 }
-  \item{group}{
+  \item{cluster}{
 vector same length as df (e.g Data$team)
 }
 \item{round1}{
 round, default to 3 
 }
+ \item{data}{
+data, default same as df}
 }
 \details{
-ICC1 corresponds to the intraclass correlation coefficient 1  (see more details in ICC1 {multilevel}). "ICC1 represents the amount of individual-level variance that can be explained by group membership". Design effect is computed based in design effect formula in Hox (2010).
+ICC1 corresponds to the intraclass correlation coefficient 1  (see more details in (\code{\link{ICC1}})). "ICC1 represents the amount of individual-level variance that can be explained by group membership". Design effect is computed based in design effect formula in Hox (2010).
 
 If cluster size is not the same across groups, sample size mean is used instead.}
 \value{
@@ -56,5 +58,5 @@ v4<-sample(x,800,replace=TRUE)
 team<- sample(y, 800, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 
-designEffectICC(df, team, data=df)
+designEffect(df, team )
 }

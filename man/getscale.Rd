@@ -7,7 +7,7 @@
 \description{
 }
 \usage{
-getscale(df, file, column)
+getscale(df, file, column, sheet=1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,7 +18,7 @@ excel file (e.g "example.xlsx")}
   \item{column}{
 Column name for scale in excel (e.g "Scale")}
  \item{sheet}{
-sheet number}
+sheet number default 1}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

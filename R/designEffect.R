@@ -1,10 +1,10 @@
-designEffectICC <-function(df, group=group, data=df, round1=3)
+designEffect <-function(df, cluster=cluster, data=df, round1=3)
   {
   require(multilevel)
   require(reshape2)
-    v <- melt(table(group))
+    v <- melt(table(cluster))
     n <- mean(v$value)
-    icc1<-function(x, group1=group, data1=data){
+    icc1<-function(x, group1=cluster, data1=data){
       out1<-aov(x ~as.factor(group1),data=data1)
       output<-ICC1(out1)
     }
