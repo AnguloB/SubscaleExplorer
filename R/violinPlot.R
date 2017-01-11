@@ -1,5 +1,5 @@
 violinPlot <-
-  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460",labList=NULL, legendLab="Group", title1="Title"){
+  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460",labList=NULL, legendLab="Group", title1=""){
     theme_nogrid <- function (base_size = 12, base_family = "")
     {theme_bw(base_size = base_size, base_family = base_family) %+replace%
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
