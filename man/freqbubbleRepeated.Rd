@@ -12,10 +12,10 @@ freqbubbleRepeated(df1, df2, color1 = "black", color2 = "#9999CC", group1 = "Gro
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df1}{
-object created by function "frecuencies" for group1
+object created by function "frequencies" for group1
 }
   \item{df2}{
-object created by function "frecuencies" for group2
+object created by function "frequencies" for group2
 }
   \item{color1}{
 bubble color group 1, default = "black"}
@@ -53,12 +53,12 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \examples{
 #generate some random data
 x<-1:5
-y<-c("male", "female")
+y<-c("t1", "t2")
 v1<-sample(x,80,replace=TRUE)
 v2<-sample(x,80,replace=TRUE)
 v3<-sample(x,80,replace=TRUE)
 v4<-sample(x,80,replace=TRUE)
-gender<- sample(y, 80, replace=TRUE)
+time<- sample(y, 80, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
-obj<-frequencies(df, group=gender)
-freqbubbleRepeated(obj$male, obj$female, color1 = "black", color2 = "#9999CC", group1 = "Group1", group2 = "Group2")}
+obj<-frequencies(df, group=time)
+freqbubbleRepeated(obj$t1, obj$t2, color1 = "black", color2 = "#9999CC", group1 = "Group1", group2 = "Group2")}
