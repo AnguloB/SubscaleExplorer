@@ -1,4 +1,4 @@
-uniqueValues<-function(df, group){
+uniqueValues<-function(df, group=NULL){
   require(reshape2)
   #calculate unique values
   f<-function(t){
@@ -6,7 +6,6 @@ uniqueValues<-function(df, group){
   q<-melt(p)
   names(q) <- c("unique")
   
-  #calculate NA in order to calculate uniquevalid
   a<-rapply(df, function(x)any(is.na(x)))
   b <-as.data.frame(melt(a))
   b [b == TRUE] <- 1 #NA=TRUE is equal to 1
@@ -18,5 +17,11 @@ uniqueValues<-function(df, group){
   names(Df) <- c("variable", "uniqueValid","unique") #change name
   print(Df) #print matrix
   }
-  by(df, group, f)
+  if(is.null(group)==TRUE){
+    f(df)
+  }
+  else{if(is.null(group)==FALSE){
+    by(df, group, f)
+    
+  }}
 }

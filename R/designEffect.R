@@ -13,8 +13,8 @@ designEffect <-function(df, cluster=cluster, data=df, round1=3)
     effect1 <- 1 + (n - 1) * a
 
     results<-round(data.frame(a, effect1),3)
-    names(results)<- c( "ICC1","designEffectCorrected" )
-    print("n ( mean cluster size  when groups are different size)")
+    names(results)<- c( "ICC1","designEffect" )
+    print("n (mean cluster size  when groups are different size)")
     print(n)
     return(results)
   }

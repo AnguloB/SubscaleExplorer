@@ -1,12 +1,13 @@
 freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = "", 
-                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, 
-                      color1 = "black", color2 = "#9999CC", group1 = "Group1", 
-                      group2 = "Group2") 
+                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12) 
 {
   require(ggplot2)
   require(plyr)
   require(gridExtra)
-  table1<- function(df1){
+  
+  
+  
+  table1<- function(df1, title1=title){
     z <<- melt(df1, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
     if (any(is.na(z$value))) {
@@ -44,7 +45,7 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
                                                                    position = "identity"), shape = 20, color = color, 
                                                                alpha = alpha) + scale_size_continuous(name = (dd), 
                                                                                                       range = c(2, 30)) + scale_y_discrete(labels = (g2)) + 
-        xlab(x.lab) + ylab(y.lab) + ggtitle(title) + 
+        xlab(x.lab) + ylab(y.lab) + ggtitle(title1) + 
         theme_nogrid()
       warning("no grouping variable requested")
       return(plot1)
