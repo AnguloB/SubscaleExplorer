@@ -1,8 +1,9 @@
 freqbubbleRepeated <-
-function(df1, df2, color1="black", color2="#9999CC", group1="Group1", group2="Group2")
+function(df1, df2, color1="black", color2="#9999CC", Wave1="Wave1", Wave2="Wave2")
 {{
   require(ggplot2)
   require(reshape2)
+
   z1 <- melt(df1, na.rm=TRUE)
   z2 <- melt(df2, na.rm=TRUE)
   dat1<-data.frame(z1, z2)
@@ -47,7 +48,7 @@ function(df1, df2, color1="black", color2="#9999CC", group1="Group1", group2="Gr
     plot1<- ggplot(dat3, aes(x = variable, y = value, size=1, color=Type))+
     geom_point( aes(size = f1,   color=Type), shape = 19, alpha=0.5) +
     scale_size_continuous(name= (dd), range = c(2,30))+  scale_y_discrete(labels=(g2))+
-    scale_colour_manual(values = c(color1,color2), label=c(group1, group2))+
+    scale_colour_manual(values = c(color1,color2), label=c(Wave1, Wave2))+
     theme_nogrid()
     print(plot1)
   }

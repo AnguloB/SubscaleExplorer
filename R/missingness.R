@@ -1,7 +1,7 @@
 missingness<-
-function(df, group=NULL){
+function(df, group=NULL, pattern=FALSE,showNA=FALSE){
     require(mice)
-    table1<-function(f){
+    table1<-function(f, pattern1=pattern, casesAllMissing=showNA){
       l<-c("-------")
       l1 <- c("-------")
       bnn<-f 
@@ -33,10 +33,7 @@ function(df, group=NULL){
       row.names(j1)<- NULL
       a<-as.data.frame(which(!rowSums(!is.na(f))))
       names(a)<- ("Rows with completely missing data")
-      RowNames<-row.names(a)
-      afinal<-data.frame(RowNames, a)
-      names(afinal)<- c("case number", "case number by group")
-      row.names(afinal)<- NULL
+      row.names(a)<- NULL
       kl<-apply(f,2,function(x)(sum(is.na(x))))
       kl1<-as.data.frame(kl)
       names(kl1)<-("na")
@@ -46,7 +43,9 @@ function(df, group=NULL){
       gg<-data.frame(names(f),kl1$na, gh1$prop.na)
       names(gg)<-c("variable", "na", "prop.na")
       gg$prop.na<-round(gg$prop.na, 3)
+    
       mdp<- md.pattern(f)
+      if(nrow(mdp)>=3){
       nam <-rownames(mdp)
       row.names(mdp)<- NULL
       nam <- nam[-length(nam)]
@@ -71,24 +70,40 @@ function(df, group=NULL){
       colnames(newrow) <- colnames(hfg11)
       hfg2 <- rbind(hfg11,newrow)
       mdp1<-rbind(hfg2,falta)
+      }
+      
+      if(nrow(mdp)<=2){
+      mdp1<- c("All items have been answered")}
       
       print("-------------------------------------------------------")
       print("Missingness summary")
       print(j1)
-      print(afinal)
+      if(casesAllMissing==TRUE) {
+             if(nrow(a)>=1){
+                 print(a)}
+               else{
+                 if(nrow(a)==0){
+                   print("No rows with completely missing data")
+                 }}}
       print("Total missing variable")
       print(gg)
-      print("Missing Data Pattern")
-      print(mdp1)
+      if(pattern1==TRUE){
+         print("Missing Data Pattern")
+         print(mdp1)
+      }
       print("-------------------------------------------------------")
       return(j1)
     }
     if (is.null(group)) {
+      
       answer<-table1(df)
+      print(answer)
     }
     else {
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                            +                                                        NROW(df))) 
         group <- df[, group]
+      table1(df)
       answer <- by(df, group, table1)
+      print(answer)
     }
   }

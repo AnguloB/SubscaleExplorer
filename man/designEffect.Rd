@@ -5,7 +5,7 @@
 Design effect and Intraclass Correlation Coeficient for Multilevel Analysis
 }
 \description{
-Calculate design effect and ICC for multilevel analysis}
+Calculate ICC1 and design effect for multilevel analysis}
 \usage{
 designEffect(df, cluster=cluster, data=df, round1=3)
 }
@@ -24,7 +24,7 @@ round, default to 3
 data, default same as df}
 }
 \details{
-ICC1 corresponds to the intraclass correlation coefficient 1  (see more details in (\code{\link{ICC1}})). "ICC1 represents the amount of individual-level variance that can be explained by group membership". Design effect is computed based in design effect formula in Hox (2010).
+ICC is the intraclass correlation coefficient 1."ICC1 represents the amount of individual-level variance that can be explained by group membership"  (see more details in (\code{\link{ICC1}})).  Design effect is computed according to Hox's (2010) formula.
 
 If cluster size is not the same across groups, sample size mean is used instead.}
 \value{
@@ -34,7 +34,7 @@ If cluster size is not the same across groups, sample size mean is used instead.
 
 }
 \references{
-Hox, J. (2010). Multilevel analysis - Techniques and applications. Multilevel analysis techniques and applications. (2nd ed.). New York: NY: Routledge.}
+Hox, J. (2010).  Multilevel analysis: techniques and applications. (2nd ed.). New York: NY: Routledge.}
 
 \author{
 Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}

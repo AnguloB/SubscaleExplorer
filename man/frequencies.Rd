@@ -3,9 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 
 \title{
-Quick frequency and proportion tables}
+Quick frequencies and proportions table}
 
-\description{This function generates a quick frequency or proportions table. Useful for freqbubble function  
+\description{This function generates a quick frequencies or proportions table. Useful for freqbubble function  
 }
 \usage{
 frequencies(df, group = NULL, missing = TRUE, prop = FALSE, round1 = 2)
@@ -22,7 +22,7 @@ Logical. TRUE (default) missing displayed}
   \item{prop}{
 Logical. If TRUE proportions are displayed instead of frequencies}
   \item{round1 }{
-Rounds values Default=2}
+Rounds values. default=2}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

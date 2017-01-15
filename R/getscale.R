@@ -1,5 +1,5 @@
 getscale <-
-function(df,file, column, sheet=1){
+function(df,file, sheet=1, column){
     require("readxl")  
     reference <<- read_excel(file, sheet) #EXCEL
     Data<-df   #DADES

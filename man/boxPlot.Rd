@@ -4,23 +4,23 @@
 \title{
 Produce a quick boxplot }
 \description{
-Produce a quick boxplot giving a data frame or matrix and if wanted a vector with group membership.}
+Produce a quick boxplot from a data frame or matrix and if wanted a vector with group membership.}
 \usage{
 boxPlot(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", 
-group1="Group1", group2="Group2", legendLab="Group", title1="")
+labList, legendLab="Group", title1="")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
 Data frame or matrix}
   \item{group}{
-A vector same length as df (p.ex df$group) Default (NULL)
+A vector of the same length as df (p.ex df$group) Default (NULL)
 }
   \item{same}{
 Should the plot be printed (default TRUE) or should appear a pdf in working directory (each page presents a single group)
 }
   \item{missing}{
-If FALSE, na.omit is used before ploting default TRUE
+If FALSE, na.omit is used before ploting. Default  TRUE
 }
 \item{labList}{
 default NULL uses factor levels as group membership label.Else list (p.eg c("group1", "group2"))
@@ -40,7 +40,7 @@ Plot title (default=NULL)
 \value{
 
 \item{plot }{Single plot }
-\item{pdf }{One plot per single group (same=FALSE)}
+\item{pdf }{One plot per each group (same=FALSE)}
 }
 \references{
 %% ~put references to the literature/web site here ~

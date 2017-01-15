@@ -1,23 +1,51 @@
 violinPlot <-
-  function(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460",labList=NULL, legendLab="Group", title1=""){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",xOrder=TRUE,labList=TRUE, legendLab="Group", title1=""){
     theme_nogrid <- function (base_size = 12, base_family = "")
     {theme_bw(base_size = base_size, base_family = base_family) %+replace%
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
         theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
-    if(is.null(labList)){
+    if(is.vector(df)==FALSE){
+      if(xOrder==TRUE){
+        df11<-df
+        df1<<- as.data.frame(df11[,order(colnames(df11))])}
+      else{if(xOrder==FALSE){
+        df1<-df
+      }}
+    }
+    else{if(is.vector(df)==TRUE){df1<-df}}
+    
+    
+    if(labList==TRUE){
       labList1<-levels(factor(group))
-    }else
-    {labList1<-labList}
+    }
+    else{
+      if(is.vector(labList)==TRUE)
+      {labList1<-labList}}
 
     if(missing==TRUE)
-    { 
-      df3<<-data.frame(melt(df))} #dataframe with missings to be ploted
-    else 
-      if(missing==FALSE) { #dataframe without missings to be ploted
-        df2<-melt(df)
-        df3 <- df2[!is.na(df2$value), ]}
-    
+    {
+      if(is.vector(df1)==TRUE)
+      {
+        df3<-data.frame(replace(1:length(df1),1:length(df1),1),df1)
+        names(df3)<- c("variable", "value")
+      }
+      else{ if(is.vector(df1)==FALSE){
+        df3<<-data.frame(melt(df1))
+      }}
+    }
+    else
+      if(missing==FALSE) {
+        if(is.vector(df1)==TRUE)
+        {
+          df3<-data.frame(replace(1:length(df1),1:length(df1),1),df1)
+          names(df3)<- c("variable", "value")
+        } 
+        else{ if(is.vector(df1)==FALSE){
+          df2<<-data.frame(melt(df1))
+          df3 <<- df2[!is.na(df2$value), ]
+        }}
+      }
     if (is.null(group)) { #plot when there is no group
       k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=0.3)+ 
         scale_y_continuous(breaks=as.numeric(names(table(df3$value))))+xlab("")+geom_boxplot(width=.1)+
@@ -28,20 +56,29 @@ violinPlot <-
       
     }
     else {     #for groups
-      if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df))) 
-        group <- df[, group]
-      g<-data.frame(group,df)
+      if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df1)))
+        group <- df1[, group]
+      g<-data.frame(group,df1)
       g$group<-factor(g$group,labels = labList1)
-      y<-melt(g)
-      if(missing==TRUE)   #data with missing when there is a group
-      { 
+      if(is.vector(df1)==TRUE)
+      {
+        z1<<-data.frame(replace(1:nrow(g),1:nrow(g),1),g)
+        names(z1)<- c("variable", "group", "value")
+        y<-z1
+      }
+      
+      else{ if(is.vector(df1)==FALSE){
+        y<-melt(g)
+        
+      }}
+      if(missing==TRUE)
+      {
         y1<-y}
+      else
+        if(missing==FALSE) {
+          y1 <<- na.omit(y)}
       
-      else 
-        if(missing==FALSE) { #data without missing when there is  a group
-          y1 <- na.omit(y)}
-      
-      if(same==TRUE){ #all groups in the same graph
+      if(out=="default"){ #all groups in the same graph
         dodge <- position_dodge(width = 0.8)
         p<-ggplot(y1, aes(x=variable, y=value, fill=group)) + geom_violin (aes(fill = group), position=dodge)+xlab("")+
           scale_y_continuous(as.numeric(names(table(y1$value))))+geom_boxplot(width=.1, position=dodge)+
@@ -49,14 +86,20 @@ violinPlot <-
           labs(list(title = title1))+     
           theme_nogrid()
         print(p)}
-      else{if(same==FALSE){ #produces a pdf with a page per group
-        plot1 <- function(df,color1=color){
-          p<-ggplot(df, aes(x=variable, y=value))+geom_violin(fill=color1, colour="black", alpha=0.3)+ggtitle(df$group)+ 
-            scale_y_continuous(as.numeric(names(table(y1$value))))+ xlab("")+geom_boxplot(width=.1)+theme_nogrid()
-          print(p)}
-        {pdf("violinJ3.pdf")   #pdf name file
-          d_ply(y1, .(group),plot1) 
-          dev.off()}
-      }} 
+      else
+        {if(out=="rearrange"){
+          plot1 <- function(df, color1=color){
+            
+         plot1 <- ggplot(df, aes(x = variable, y = value)) + 
+           geom_violin(fill = color, colour = "black", 
+                       alpha = 0.3) + ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
+           xlab("") + geom_boxplot(width = 0.1) + theme_nogrid()
+         return(plot1)}
+          {
+            plotGroup<-by(y1,y1$group, plot1)
+            n <- length(plotGroup)
+            nCol <- floor(sqrt(n))
+            do.call("grid.arrange", c(plotGroup, ncol=nCol))          }
+        }}
     }
   }

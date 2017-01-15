@@ -3,7 +3,7 @@
 \title{
 Unique values per variable}
 \description{
-Unique values (with or without missings) per variable giving a dataframe or matrix
+Unique values (with or without missings) per variable from a dataframe or matrix
 }
 \usage{
 uniqueValues(df)
@@ -13,13 +13,16 @@ uniqueValues(df)
   \item{df}{
 dataframe or matrix}
 }
+\item{group}{
+vector same length to df}
+}
 
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 
- \item{table }{First column has variable names, second column represents unique values without considering missings. Third column represents unique values +  missing. For instance, if there are 4 possible values in a variable, first column is going to have a 4. If there is missing data second column is going to have n+1 = 5 }
+ \item{table }{Variable names in first column (variable), counts of unique values without considering missings in second column (uniqueValid). Unique values +  missing in third column (unique). For instance, if there are 4 endorsed values in a variable uniqueValid=4. If there are missing data unique=5.}
 %% ...
 }
 \references{
@@ -27,8 +30,6 @@ dataframe or matrix}
 }
 \author{
 Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
-\note{
-You can use function "by" to get results by group}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
@@ -46,10 +47,9 @@ v4<-sample(x,80,replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
 gender<- sample(y, 80, replace=TRUE)
 
-uniqueValues(df)
+uniqueValues(df, group=gender)
 
 #by group 
-by(df, gender, uniqueValues)
 }
 
 

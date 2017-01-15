@@ -2,7 +2,7 @@
 \alias{freqbubble}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Freqbubble for frequency and proportions
+Freqbubble for frequencies and proportions
 }
 \description{
 Freqbubble using frequencies object }
@@ -14,7 +14,7 @@ freqbubble(df, group=NULL,color = "#666699", title = "", x.lab = "", y.lab = "Re
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
-object created by function "frecuencies"}
+object created by function (\code{\link{frequencies}})}
  \item{group}{
  "TRUE"" if df is an object with 2 groups (default=NULL)
 }
@@ -43,11 +43,13 @@ color for group 2 in group plot (default="#9999CC")}
   label for group2 in legend (default ="Group2")
 }
 }
-\details{
-Repeated measures plot only work with two groups. It is recommended to use proportions in order to compare two groups}
+
 \value{
 plot
 }
+
+\details{
+Only two groups are allowed in plot by group.It is recommended to use proportions in order to compare groups.}
 \references{
 %% ~put references to the literature/web site here ~
 }
@@ -61,7 +63,7 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 
 
 \seealso{
- \code{\link{frequencies}},  \code{\link{freqbubble_repeated}}, \code{\link{table}}}
+ \code{\link{frequencies}},  \code{\link{freqbubbleRepeated}}, \code{\link{table}}}
  
  
 \examples{

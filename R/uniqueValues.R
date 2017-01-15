@@ -1,10 +1,8 @@
-uniqueValues <-
-function(df)
-{
+uniqueValues<-function(df, group){
   require(reshape2)
   #calculate unique values
-  
-  p<-rapply(df,function(x)length(unique(x)))
+  f<-function(t){
+  p<-rapply(t,function(x)length(unique(x)))
   q<-melt(p)
   names(q) <- c("unique")
   
@@ -18,5 +16,7 @@ function(df)
   m<- q$unique - b$value
   Df <- data.frame(names(df),m,n) #as data.frame
   names(Df) <- c("variable", "uniqueValid","unique") #change name
-  print(Df) #print matrix 
+  print(Df) #print matrix
+  }
+  by(df, group, f)
 }

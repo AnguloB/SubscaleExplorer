@@ -6,8 +6,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-missingness(df, group = NULL)
-}
+missingness(df, group=NULL, pattern=FALSE,showNA=FALSE )}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
@@ -15,18 +14,23 @@ dataframe or matrix}
   \item{group}{
 group (p.eg gender)}
 }
+\item{pattern}{
+logical default FALSE. If true missing data pattern is printed}
+
+\item{showNA}{
+list with id of cases with completely missing data}
+}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-Frequencies and proportions for case missingness
-cases with all items answered
-cases with incomplete data
-cases with some or all items answered
-cases with completely missing data
-Summary cell missingness
-total cases
-proportion of cell missingness
+\item{Frequencies and proportions for case missingness }
+\item{cases with all items answered }
+\item{cases with incomplete data }
+\item{cases with some or all items answered}
+\item{cases with completely missing data}
+\item{Summary cell missingness}
+\item{proportion of cell missingness}
 
 }
 \references{
@@ -54,5 +58,10 @@ missingness(df)
 
 #by group
 missingness(df, group=gender)
+
+#by group with data pattern and completely missing data list
+missingness2(df, group=gender, pattern=TRUE, showNA=TRUE)
+
+
 }
 

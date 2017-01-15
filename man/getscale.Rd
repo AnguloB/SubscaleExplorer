@@ -1,13 +1,13 @@
 \name{getscale}
 \alias{getscale}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Get scales and subscales giving a dataframe or matrix and a reference sheet from excel
+\title{Get subscales from a dataframe or matrix and a reference spreedsheet from excel
 %%  ~~function to do ... ~~
 }
 \description{
 }
 \usage{
-getscale(df, file, column, sheet=1)
+getscale(df, file,sheet=1,  column)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,7 +16,7 @@ Data frame or matrix}
   \item{file}{
 excel file (e.g "example.xlsx")}
   \item{column}{
-Column name for scale in excel (e.g "Scale")}
+Column name (or number) for scale in excel (e.g "Subscale")}
  \item{sheet}{
 sheet number default 1}
 }
@@ -41,8 +41,8 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-#reference is an excel sheet with a colum "VariablesInput" which contain variable name of  the data frame
-getscale(df, "reference.xlsx", column="Scales")
+#reference is an excel sheet with a colum "VariablesInput" which contains variable names of the data frame
+getscale(df, "reference.xlsx", column="Subscales")
 a<-unlist(output)
 a<-data.frame((vapply(output,unlist,unlist(output[[1]]))))
 
