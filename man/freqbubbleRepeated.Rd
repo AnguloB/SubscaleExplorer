@@ -52,12 +52,14 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \examples{
 #generate some random data
 x<-1:5
-y<-c("t1", "t2")
+y<-c("w1", "w2")
 v1<-sample(x,80,replace=TRUE)
 v2<-sample(x,80,replace=TRUE)
 v3<-sample(x,80,replace=TRUE)
 v4<-sample(x,80,replace=TRUE)
-time<- sample(y, 80, replace=TRUE)
+wave<- sample(y, 80, replace=TRUE)
 df <- data.frame(v1, v2,v3,v4)
-obj<-frequencies(df, group=wave)
+
+obj<-frequencies(df, group=wave, prop=TRUE, missing=FALSE)
+
 freqbubbleRepeated(obj$t1, obj$t2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", Wave2 = "Wave2")}

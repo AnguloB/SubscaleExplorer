@@ -65,7 +65,9 @@ df <- data.frame(v1, v2,v3,v4)
 obj<-frequencies(df)
 freqbubble(obj)
 
+#object with group
 objGroup<-frequencies(df, gender)
+freqbubble(objGroup)
 
 }
  
