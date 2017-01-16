@@ -6,21 +6,20 @@ Produce a quick boxplot }
 \description{
 Produce a quick boxplot from a data frame or matrix and if wanted a vector with group membership.}
 \usage{
-boxPlot(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", 
-labList, legendLab="Group", title1="")
+boxPlot(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
-Data frame or matrix}
+vector, data frame or matrix}
   \item{group}{
 A vector of the same length as df (p.ex df$group) Default (NULL)
 }
-  \item{same}{
-Should the plot be printed (default TRUE) or should appear a pdf in working directory (each page presents a single group)
+  \item{out}{
+For groups. If "default" a boxplot with all groups is printed. If "rearranged" one graph with a plot for each group is printed
 }
   \item{missing}{
-If FALSE, na.omit is used before ploting. Default  TRUE
+If FALSE, na.omit is used before ploting for variable group. Default  TRUE
 }
 \item{labList}{
 default NULL uses factor levels as group membership label.Else list (p.eg c("group1", "group2"))
@@ -31,7 +30,10 @@ color when group is NULL (default "#F4A460")
 \item{legendLab}{
 Legend title label (default="Group")}
 \item{title1}{
-Plot title (default=NULL)
+Plot title (default="")
+}
+\item{xOrder}{
+x labels ordered alphabetically (default=TRUE)
 }
 }
 \details{
@@ -74,8 +76,8 @@ boxPlot(df)
 #Run boxplot by group 
 boxPlot(df, group=gender, labList=c("Male", "Female"), legendLab="Gender", title1="Boxplot by gender")
 
-#Run a boxplot per group (pdf)
-boxPlot(df, group=gender, same=FALSE)
+#Run a boxplot for each group
+boxPlot(df, group=gender, out="rearranged")
 
 
 }

@@ -21,7 +21,7 @@ vector same length as df (e.g Data$team)
 round, default to 3 
 }
  \item{data}{
-data, default same as df}
+dataframe or matrix, default same as df}
 }
 \details{
 ICC is the intraclass correlation coefficient 1."ICC1 represents the amount of individual-level variance that can be explained by group membership"  (see more details in (\code{\link{ICC1}})).  Design effect is computed according to Hox's (2010) formula.

@@ -13,7 +13,7 @@ group2="Group2", legendLab="Group", title1="Title")
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
-Data frame or matrix}
+vector, data frame or matrix}
   \item{group}{
 variable group  (df$variable)}
   \item{same}{

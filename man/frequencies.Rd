@@ -13,7 +13,7 @@ frequencies(df, group = NULL, missing = TRUE, prop = FALSE, round1 = 2)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{df}{
-    Dataframe or matrix
+    vector, dataframe or matrix
 }
   \item{group}{
 A vector same length as df (e.g, df$group) Default (NULL)} 

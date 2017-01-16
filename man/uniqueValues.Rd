@@ -48,6 +48,7 @@ df <- data.frame(v1, v2,v3,v4)
 gender<- sample(y, 80, replace=TRUE)
 
 uniqueValues(df, group=gender)
+uniqueValues(df, group=gender)
 
 #by group 
 }

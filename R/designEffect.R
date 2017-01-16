@@ -1,7 +1,11 @@
-designEffect <-function(df, cluster=cluster, data=df, round1=3)
+designEffect <-function(df, cluster=NULL, data=df, round1=3)
   {
   require(multilevel)
   require(reshape2)
+  if(is.null(cluster)==TRUE){
+    warning("There is no cluster variable")
+  }
+  else{if(is.null(cluster)==FALSE){
     v <- melt(table(cluster))
     n <- mean(v$value)
     icc1<-function(x, group1=cluster, data1=data){
@@ -17,4 +21,5 @@ designEffect <-function(df, cluster=cluster, data=df, round1=3)
     print("n (mean cluster size  when groups are different size)")
     print(n)
     return(results)
+  }}
   }

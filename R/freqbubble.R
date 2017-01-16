@@ -8,7 +8,7 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
   
   
   table1<- function(df1, title1=title){
-    z <<- melt(df1, na.rm = TRUE)
+    z <- melt(df1, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
     if (any(is.na(z$value))) {
       g <- as.character(factor(unique(z$value)))
@@ -57,7 +57,7 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
   }
   else{
     if(is.list(df)){
-      plotGroup<<-lapply(df,table1)
+      plotGroup<-lapply(df,table1)
       n <- length(plotGroup)
       nCol <- floor(sqrt(n))
       do.call("grid.arrange", c(plotGroup, ncol=nCol))  
