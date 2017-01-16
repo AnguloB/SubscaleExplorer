@@ -21,15 +21,7 @@ list with id of cases with completely missing data}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
-\value{
-\item{Frequencies and proportions for case missingness }
-\item{cases with all items answered }
-\item{cases with incomplete data }
-\item{cases with some or all items answered}
-\item{cases with completely missing data}
-\item{Summary cell missingness}
-\item{proportion of cell missingness}
-}
+
 \references{
 %% ~put references to the literature/web site here ~
 }

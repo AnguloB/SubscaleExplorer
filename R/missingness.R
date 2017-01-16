@@ -97,13 +97,13 @@ function(df, group=NULL, pattern=FALSE,showNA=FALSE){
     if (is.null(group)) {
       
       answer<-table1(df)
-      print(answer)
+      return(answer)
     }
     else {
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                            +                                                        NROW(df))) 
         group <- df[, group]
       table1(df)
       answer <- by(df, group, table1)
-      print(answer)
+      return(answer)
     }
   }
