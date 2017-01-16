@@ -12,11 +12,9 @@ uniqueValues(df)
 \arguments{
   \item{df}{
 dataframe or matrix}
-}
 \item{group}{
 vector same length to df}
 }
-
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }

@@ -13,10 +13,8 @@ missingness(df, group=NULL, pattern=FALSE,showNA=FALSE )}
 dataframe or matrix}
   \item{group}{
 group (p.eg gender)}
-}
 \item{pattern}{
 logical default FALSE. If true missing data pattern is printed}
-
 \item{showNA}{
 list with id of cases with completely missing data}
 }
@@ -31,7 +29,6 @@ list with id of cases with completely missing data}
 \item{cases with completely missing data}
 \item{Summary cell missingness}
 \item{proportion of cell missingness}
-
 }
 \references{
 %% ~put references to the literature/web site here ~

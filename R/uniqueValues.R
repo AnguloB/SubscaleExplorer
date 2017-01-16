@@ -15,7 +15,7 @@ uniqueValues<-function(df, group=NULL){
   m<- q$unique - b$value
   Df <- data.frame(names(df),m,n) #as data.frame
   names(Df) <- c("variable", "uniqueValid","unique") #change name
-  print(Df) #print matrix
+  return(Df) #print matrix
   }
   if(is.null(group)==TRUE){
     f(df)

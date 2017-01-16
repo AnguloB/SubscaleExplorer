@@ -73,5 +73,8 @@ violinPlot(df, color="green")
 #by group 
 violinPlot(df, gender)
 
+#a plot for each group 
+violinPlot(df, gender, out="rearrange")
+
 }
 

@@ -77,7 +77,7 @@ boxPlot(df)
 boxPlot(df, group=gender, labList=c("Male", "Female"), legendLab="Gender", title1="Boxplot by gender")
 
 #Run a boxplot for each group
-boxPlot(df, group=gender, out="rearranged")
+boxPlot(df, group=gender, out="rearrange")
 
 
 }
