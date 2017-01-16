@@ -92,7 +92,6 @@ function(df, group=NULL, pattern=FALSE,showNA=FALSE){
          print(mdp1)
       }
       print("-------------------------------------------------------")
-      return(j1)
     }
     if (is.null(group)) {
       
