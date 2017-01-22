@@ -57,7 +57,6 @@ boxPlot <-
         labs(list(title = title1))+
         theme_nogrid()
       warning("no grouping variable requested")
-      print(k)
       return(k)
     }
     else {
