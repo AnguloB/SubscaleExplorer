@@ -57,7 +57,6 @@ boxPlot <-
         labs(list(title = title1))+
         theme_nogrid()
       warning("no grouping variable requested")
-      return(k)
     }
     else {
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df1)))
@@ -86,7 +85,7 @@ boxPlot <-
           scale_fill_discrete(name=legendLab)+
           labs(list(title = title1))+
           theme_nogrid()
-        return(p)}
+       }
       else
 
       {if(out=="rearrange"){
