@@ -49,7 +49,7 @@ missingness(df)
 missingness(df, group=gender)
 
 #by group with data pattern and completely missing data list
-missingness2(df, group=gender, pattern=TRUE, showNA=TRUE)
+missingness(df, group=gender, pattern=TRUE, showNA=TRUE)
 
 
 }
