@@ -94,7 +94,7 @@ boxPlot <-
         plot1 <- function(df, color1=color){
           plot1<-ggplot(df, aes(x=variable, y=value))+geom_boxplot(fill=color1, colour="black", alpha=0.3)+ggtitle(df$group)+
             scale_y_continuous(as.numeric(names(table(df$value))))+ xlab("")+theme_nogrid()
-          return(plot1)}
+          }
         {
           plotGroup<-by(y1,y1$group, plot1)
           n <- length(plotGroup)
