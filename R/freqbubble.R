@@ -5,14 +5,6 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
   require(plyr)
   require(gridExtra)
   
-  if(xOrder==TRUE){
-    df11<-df
-    df33<<-df11[sort(rownames(df11)), ]
-    }
-  
-    else{if(xOrder==FALSE){
-    df33<-df
-  }}
   
   
   table1<- function(df1, title1=title){
@@ -60,12 +52,20 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
     }
   }
   
-  if(is.table(df33)){
-    table1(df33)
+  if(is.table(df)){
+    if(xOrder==TRUE){
+      df3<<-df[sort(rownames(df)), ]
+    }
+    
+    else{if(xOrder==FALSE){
+      df3<-df
+    }}
+    
+    table1(df3)
   }
   else{
-    if(is.list(df33)){
-      plotGroup<-lapply(df33,table1)
+    if(is.list(df)){
+      plotGroup<-lapply(df,table1)
       n <- length(plotGroup)
       nCol <- floor(sqrt(n))
       do.call("grid.arrange", c(plotGroup, ncol=nCol))  
