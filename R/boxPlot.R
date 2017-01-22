@@ -87,7 +87,7 @@ boxPlot <-
           scale_fill_discrete(name=legendLab)+
           labs(list(title = title1))+
           theme_nogrid()
-        print(p)}
+        return(p)}
       else
 
       {if(out=="rearrange"){

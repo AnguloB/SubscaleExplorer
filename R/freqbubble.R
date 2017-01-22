@@ -1,10 +1,18 @@
 freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = "", 
-                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12) 
+                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, xOrder=TRUE) 
 {
   require(ggplot2)
   require(plyr)
   require(gridExtra)
   
+  if(xOrder==TRUE){
+    df11<-df
+    df33<<-df11[sort(rownames(df11)), ]
+    }
+  
+    else{if(xOrder==FALSE){
+    df33<-df
+  }}
   
   
   table1<- function(df1, title1=title){
@@ -52,12 +60,12 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
     }
   }
   
-  if(is.table(df)){
-    table1(df)
+  if(is.table(df33)){
+    table1(df33)
   }
   else{
-    if(is.list(df)){
-      plotGroup<-lapply(df,table1)
+    if(is.list(df33)){
+      plotGroup<-lapply(df33,table1)
       n <- length(plotGroup)
       nCol <- floor(sqrt(n))
       do.call("grid.arrange", c(plotGroup, ncol=nCol))  

@@ -27,6 +27,8 @@ x labels angle (default=45)}
 transparence (default 0.3)}
   \item{lsize}{
 letter size (default 12)}
+  \item{xOrder}{
+x labels should be alphabetically ordered? (default TRUE)}
 }
 
 \value{
