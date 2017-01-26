@@ -1,9 +1,9 @@
 Package: SubscaleExplorer
-Title: Scale explorer and management
-Version: 0.1
-Date: 2017-01-16
-Author: Ariadna Angulo-Brunet <ariadna.angulo@uab.cat>, Carme Viladrich
-Maintainer: Ariadna Angulo-Brunet <ariadna.angulo@uab.cat>
+Title: Psychometric scale explorer and management
+Version: 0.1.1
+Date: 2017-01-26
+Authors@R: c(person("Ariadna", "Angulo-Brunet", email = "ariadna.angulo@uab.cat",
+  role = c("aut", "cre")), person("Carme", "Viladrich", role = "aut"))
 Description: Functions to explore scales and subscales of a questionnaire
 License: GPL(>=2)
 Depends: R (>= 3.1.0)
