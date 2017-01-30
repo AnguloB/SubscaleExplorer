@@ -8,7 +8,7 @@ violinPlot <-
     if(is.vector(df)==FALSE){
       if(xOrder==TRUE){
         df11<-df
-        df1<<- as.data.frame(df11[,order(colnames(df11))])}
+        df1<- as.data.frame(df11[,order(colnames(df11))])}
       else{if(xOrder==FALSE){
         df1<-df
       }}
@@ -31,7 +31,7 @@ violinPlot <-
         names(df3)<- c("variable", "value")
       }
       else{ if(is.vector(df1)==FALSE){
-        df3<<-data.frame(melt(df1))
+        df3<-data.frame(melt(df1))
       }}
     }
     else
@@ -42,8 +42,8 @@ violinPlot <-
           names(df3)<- c("variable", "value")
         } 
         else{ if(is.vector(df1)==FALSE){
-          df2<<-data.frame(melt(df1))
-          df3 <<- df2[!is.na(df2$value), ]
+          df2<-data.frame(melt(df1))
+          df3 <- df2[!is.na(df2$value), ]
         }}
       }
     if (is.null(group)) { #plot when there is no group
@@ -62,7 +62,7 @@ violinPlot <-
       g$group<-factor(g$group,labels = labList1)
       if(is.vector(df1)==TRUE)
       {
-        z1<<-data.frame(replace(1:nrow(g),1:nrow(g),1),g)
+        z1<-data.frame(replace(1:nrow(g),1:nrow(g),1),g)
         names(z1)<- c("variable", "group", "value")
         y<-z1
       }
@@ -76,7 +76,7 @@ violinPlot <-
         y1<-y}
       else
         if(missing==FALSE) {
-          y1 <<- na.omit(y)}
+          y1 <- na.omit(y)}
       
       if(out=="default"){ #all groups in the same graph
         dodge <- position_dodge(width = 0.8)
