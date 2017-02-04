@@ -10,6 +10,9 @@ boxPlot <-
         theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
     
+    if(group==NULL) 
+    { warning("no grouping variable requested")}
+    
     if(is.vector(df)==FALSE){
       if(xOrder==TRUE){
         df11<-df

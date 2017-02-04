@@ -4,15 +4,15 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
   require(ggplot2)
   require(plyr)
   require(gridExtra)
-  
-  
+  if(group==FALSE) 
+  { warning("no grouping variable requested")}
   
   table1<- function(df1, title1=title){
-    z <- melt(df1, na.rm = TRUE)
+    z <<- melt(df1, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
     if (any(is.na(z$value))) {
       g <- as.character(factor(unique(z$value)))
-      g1 <- c(g, "NA")
+      g1 <<- c(g, "NA")
       g2 <- as.character(na.omit(g1))
     }
     else {
@@ -28,9 +28,10 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
         dd <- c("Proportions")
       }
     }
+    
     z$variable <- factor(z$variable, levels = unique(z$variable))
-    z$value <- as.character(z$value)
-    g <- as.character(factor(unique(z$value)))
+    z$value <- factor(z$value)
+    g <<- as.character(factor(unique(z$value)))
     g1 <- c(g, "NA")
     g2 <- as.character(na.omit(g1))
     theme_nogrid <- function(base_size = lsize, base_family = "") {
@@ -40,14 +41,12 @@ freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = 
                                                                                angle = angle))
     }
     {
-      plot1 <- ggplot(data = z, aes(x = variable, y = value, 
-                                    size = Freq)) + geom_point(aes(size = Freq, stat = "identity", 
-                                                                   position = "identity"), shape = 20, color = color, 
-                                                               alpha = alpha) + scale_size_continuous(name = (dd), 
-                                                                                                      range = c(2, 30)) + scale_y_discrete(labels = (g2)) + 
-        xlab(x.lab) + ylab(y.lab) + ggtitle(title1) + 
+      plot1 <- ggplot(data = z, aes(x = variable, y =value, size = Freq)) + 
+        geom_point(aes(size = Freq, stat = "identity", 
+                       position = "identity"), shape = 20, color = color, alpha = alpha) + 
+        scale_size_continuous(name = (dd), range = c(2, 30)) +  
+        xlab(x.lab) + ylab(y.lab) + ggtitle(title1) + scale_y_discrete()+
         theme_nogrid()
-      warning("no grouping variable requested")
       return(plot1)
     }
   }

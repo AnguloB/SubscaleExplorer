@@ -5,6 +5,10 @@ violinPlot <-
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
         theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
+    
+    if(group==NULL) 
+    { warning("no grouping variable requested")}
+    
     if(is.vector(df)==FALSE){
       if(xOrder==TRUE){
         df11<-df
@@ -52,8 +56,7 @@ violinPlot <-
         labs(list(title = title1))+     
         theme_nogrid()
       print(k)
-      warning("no grouping variable requested")
-      
+
     }
     else {     #for groups
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df1)))
