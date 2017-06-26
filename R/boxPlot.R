@@ -1,5 +1,5 @@
 boxPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE, alpha= 0.3){
     require(ggplot2)
     require(reshape2)
     require(plyr)
@@ -54,7 +54,7 @@ boxPlot <-
       }
     
     if (is.null(group)) {
-      k<-ggplot(df3, aes(x=variable, y=value))+geom_boxplot(fill=color, colour="black", alpha=0.3)+
+      k<-ggplot(df3, aes(x=variable, y=value))+geom_boxplot(fill=color, colour="black", alpha = alpha)+
         scale_y_continuous(breaks=as.numeric(names(table(df3$value))))+xlab("")+
         labs(list(title = title1))+
         theme_nogrid()

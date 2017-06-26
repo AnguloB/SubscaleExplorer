@@ -26,6 +26,8 @@ bubble color group 2, default = "#9999CC"}
 label for wave 1}
   \item{Wave2}{
 label for wave 2}
+\item{sizeBubble}{
+bubble size range, default = c(2, 30)}
 }
 \details{
 Only valid for two waves}
@@ -62,4 +64,4 @@ df <- data.frame(v1, v2,v3,v4)
 
 obj<-frequencies(df, group=wave, prop=TRUE, missing=FALSE)
 
-freqbubbleRepeated(obj$t1, obj$t2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", Wave2 = "Wave2")}
+freqbubbleRepeated(obj$w1, obj$w2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", Wave2 = "Wave2")}

@@ -29,6 +29,8 @@ transparence (default 0.3)}
 letter size (default 12)}
   \item{xOrder}{
 x labels should be alphabetically ordered? (default TRUE)}
+\item{sizeBubble}{
+bubble size range, default = c(2, 30)}
 }
 
 \value{
