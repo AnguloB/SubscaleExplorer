@@ -93,8 +93,8 @@ violinPlot <-
           plot1 <- function(df, color1=color){
             
          plot1 <- ggplot(df, aes(x = variable, y = value)) + 
-           geom_violin(fill = color, colour = "black", 
-                       alpha = 0.3) + ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
+           geom_violin(fill = color, colour = "black", alpha = 0.3) + 
+           ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
            xlab("") + geom_boxplot(width = 0.1) + theme_nogrid()
          return(plot1)}
           {
