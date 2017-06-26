@@ -1,5 +1,6 @@
 freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", 
-                               Wave2 = "Wave2", sizeBubble =c(2,30)) 
+                               Wave2 = "Wave2",  x.lab = "", 
+                              y.lab = "Response",sizeBubble =c(2,30)) 
 {
   {
     require(ggplot2)
@@ -51,12 +52,13 @@ freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wa
                                                                                0.8, lineheight = 0.9, vjust = 0.5, hjust = 1, angle = 45))
   }
   {
-    plot1 <- ggplot(dat3, aes(x = variable, y = value, size = 1, 
-                              color = Type)) + geom_point(aes(size = f1, color = Type), 
-                                                          shape = 19, alpha = 0.5) + scale_size_continuous(name = (dd), 
-                                                                                                           range = sizeBubble) + scale_y_discrete(labels = (g2)) + 
-      scale_colour_manual(values = c(color1, color2), label = c(Wave1, 
-                                                                Wave2)) + theme_nogrid()
+    plot1 <- ggplot(dat3, aes(x = variable, y = value, size = 1, color = Type)) +
+      geom_point(aes(size = f1, color = Type), shape = 19, alpha = 0.5) + 
+      xlab(x.lab) + ylab(y.lab)+
+      scale_size_continuous(name = (dd), range = sizeBubble) +
+     scale_y_discrete(labels = (g2)) + 
+      scale_colour_manual(values = c(color1, color2), label = c(Wave1, Wave2)) +
+      theme_nogrid()
     print(plot1)
   }
 }
