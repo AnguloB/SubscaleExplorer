@@ -1,5 +1,5 @@
 violinPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",xOrder=TRUE,labList=TRUE, legendLab="Group", title1="", alpha= alpha){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",xOrder=TRUE,labList=TRUE, legendLab="Group", title1=""){
     theme_nogrid <- function (base_size = 12, base_family = "")
     {theme_bw(base_size = base_size, base_family = base_family) %+replace%
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
@@ -50,7 +50,7 @@ violinPlot <-
         }}
       }
     if (is.null(group)) { #plot when there is no group
-      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=alpha)+ 
+      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=0.3)+ 
         scale_y_continuous(breaks=as.numeric(names(table(df3$value))))+xlab("")+geom_boxplot(width=.1)+
         labs(list(title = title1))+     
         theme_nogrid()
@@ -94,7 +94,7 @@ violinPlot <-
             
          plot1 <- ggplot(df, aes(x = variable, y = value)) + 
            geom_violin(fill = color, colour = "black", 
-                       alpha = alpha) + ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
+                       alpha = 0.3) + ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
            xlab("") + geom_boxplot(width = 0.1) + theme_nogrid()
          return(plot1)}
           {

@@ -29,6 +29,10 @@ label for wave 2}
 \item{sizeBubble}{
 bubble size range, default = c(2, 30)}
 }
+\item{x.lab}{
+default empty}
+  \item{y.lab}{
+default "response"}
 \details{
 Only valid for two waves}
 \value{
