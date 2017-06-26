@@ -27,6 +27,9 @@ default NULL uses factor levels as group membership label.Else list (p.eg c("gro
 \item{color}{
 color when group is NULL (default "#F4A460")
 }
+\item{alpha}{
+transparency, defaults .3
+}
 \item{legendLab}{
 Legend title label (default="Group")}
 \item{title1}{

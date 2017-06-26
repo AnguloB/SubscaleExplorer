@@ -1,5 +1,5 @@
 freqbubble<-function (df, group = FALSE, color = "#666699", title = "", x.lab = "", 
-                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, xOrder=TRUE, range=sizeBubble) 
+                      y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, xOrder=TRUE, sizeBubble = c(2,30)) 
 {
   require(ggplot2)
   require(plyr)
