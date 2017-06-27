@@ -21,6 +21,8 @@ If you want one plot with all groups set to TRUE, otherwise FALSE}
  \item{color}{
 color when group is NULL (default "#F4A460")
 }
+ \item{colorBox}{
+boxplot color for group (default = "Spectral" from RColorBrewer)}
 \item{labList}{
 default NULL uses factor levels as group membership label.Else list (p.eg c("group1", "group2"))
 }

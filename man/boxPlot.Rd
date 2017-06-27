@@ -27,6 +27,8 @@ default NULL uses factor levels as group membership label.Else list (p.eg c("gro
 \item{color}{
 color when group is NULL (default "#F4A460")
 }
+ \item{colorBox}{
+boxplot color for group (default = "Spectral" from RColorBrewer)}
 \item{alpha}{
 transparency, defaults .3
 }
@@ -38,6 +40,7 @@ Plot title (default="")
 \item{xOrder}{
 x labels ordered alphabetically (default=TRUE)
 }
+
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

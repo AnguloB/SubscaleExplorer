@@ -1,12 +1,12 @@
 violinPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",xOrder=TRUE,labList=TRUE, legendLab="Group", title1=""){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", colorBox="Spectral",xOrder=TRUE,labList=TRUE, legendLab="Group", title1="",y.lab= " ", alpha=.3){
     theme_nogrid <- function (base_size = 12, base_family = "")
     {theme_bw(base_size = base_size, base_family = base_family) %+replace%
         theme(panel.grid = element_blank(), plot.title=element_text(hjust=0.5))+
         theme(axis.text.x =element_text(size = base_size * 0.8 , lineheight = 0.9,
                                         vjust = 0.5, hjust=1, angle=45))}
     
-
+    
     
     if(is.vector(df)==FALSE){
       if(xOrder==TRUE){
@@ -25,7 +25,7 @@ violinPlot <-
     else{
       if(is.vector(labList)==TRUE)
       {labList1<-labList}}
-
+    
     if(missing==TRUE)
     {
       if(is.vector(df1)==TRUE)
@@ -50,12 +50,12 @@ violinPlot <-
         }}
       }
     if (is.null(group)) { #plot when there is no group
-      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=0.3)+ 
-        scale_y_continuous(breaks=as.numeric(names(table(df3$value))))+xlab("")+geom_boxplot(width=.1)+
+      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=alpha)+ 
+        scale_y_continuous(name= y.lab, breaks=as.numeric(names(table(df3$value))))+xlab("") +geom_boxplot(width=.1)+
         labs(list(title = title1))+     
         theme_nogrid()
       print(k)
-
+      
     }
     else {     #for groups
       if (!is.data.frame(group) && !is.list(group) && (length(group) <                                            +                                                        NROW(df1)))
@@ -83,25 +83,25 @@ violinPlot <-
       if(out=="default"){ #all groups in the same graph
         dodge <- position_dodge(width = 0.8)
         p<-ggplot(y1, aes(x=variable, y=value, fill=group)) + geom_violin (aes(fill = group), position=dodge)+xlab("")+
-          scale_y_continuous(as.numeric(names(table(y1$value))))+geom_boxplot(width=.1, position=dodge)+
-          scale_fill_discrete(name=legendLab)+
+          scale_y_continuous(name= y.lab, as.numeric(names(table(y1$value))))+geom_boxplot(width=.1, position=dodge)+
+          scale_fill_brewer(name=legendLab,palette=colorBox)+
           labs(list(title = title1))+     
           theme_nogrid()
         return(p)}
       else
-        {if(out=="rearrange"){
-          plot1 <- function(df, color1=color){
-            
-         plot1 <- ggplot(df, aes(x = variable, y = value)) + 
-           geom_violin(fill = color, colour = "black", alpha = 0.3) + 
-           ggtitle(df$group) + scale_y_continuous(as.numeric(names(table(df$value)))) + 
-           xlab("") + geom_boxplot(width = 0.1) + theme_nogrid()
-         return(plot1)}
-          {
-            plotGroup<-by(y1,y1$group, plot1)
-            n <- length(plotGroup)
-            nCol <- floor(sqrt(n))
-            do.call("grid.arrange", c(plotGroup, ncol=nCol))          }
-        }}
+      {if(out=="rearrange"){
+        plot1 <- function(df, color1=color){
+          
+          plot1 <- ggplot(df, aes(x = variable, y = value)) + 
+            geom_violin(fill = color, colour = "black", alpha = alpha) + 
+            ggtitle(df$group) + scale_y_continuous(name=y.lab,as.numeric(names(table(df$value)))) + 
+            xlab("") + geom_boxplot(width = 0.1) + theme_nogrid()
+          return(plot1)}
+        {
+          plotGroup<-by(y1,y1$group, plot1)
+          n <- length(plotGroup)
+          nCol <- floor(sqrt(n))
+          do.call("grid.arrange", c(plotGroup, ncol=nCol))          }
+      }}
     }
   }

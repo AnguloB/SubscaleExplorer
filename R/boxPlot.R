@@ -1,5 +1,5 @@
 boxPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE, alpha= 0.3){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", x.lab= "", y.lab="",labList=TRUE, legendLab="Group", title1="", xOrder=TRUE, alpha= 0.3, colorBox="Spectral"){
     require(ggplot2)
     require(reshape2)
     require(plyr)
@@ -53,7 +53,7 @@ boxPlot <-
     
     if (is.null(group)) {
       k<-ggplot(df3, aes(x=variable, y=value))+geom_boxplot(fill=color, colour="black", alpha = alpha)+
-        scale_y_continuous(breaks=as.numeric(names(table(df3$value))))+xlab("")+
+        scale_y_continuous(name=y.lab, breaks=as.numeric(names(table(df3$value))))+xlab(x.lab)+
         labs(list(title = title1))+
         theme_nogrid()
       warning("no grouping variable requested")
@@ -81,18 +81,21 @@ boxPlot <-
         if(missing==FALSE) {
           y1 <- na.omit(y)}
       if(out=="default"){
-        p<-ggplot(y1, aes(variable, value)) + geom_boxplot(aes(fill = group))+ xlab("")+
-          scale_y_continuous(as.numeric(names(table(y1$value))))+
-          scale_fill_discrete(name=legendLab)+
-          labs(list(title = title1))+
+        p<-ggplot(y1, aes(variable, value)) + geom_boxplot(aes(fill = group))+
+          scale_y_continuous(name= y.lab, as.numeric(names(table(y1$value))))+
+          scale_fill_brewer(name=legendLab,palette=colorBox)+
+          xlab(x.lab)+ labs(list(title = title1))+
           theme_nogrid()
         return(p)}
       else
-
+        
       {if(out=="rearrange"){
         plot1 <- function(df, color1=color){
-          plot1<-ggplot(df, aes(x=variable, y=value))+geom_boxplot(fill=color1, colour="black", alpha=0.3)+ggtitle(df$group)+
-            scale_y_continuous(as.numeric(names(table(df$value))))+ xlab("")+theme_nogrid()
+          plot1<-ggplot(df, aes(x=variable, y=value))+
+            geom_boxplot(fill=color1, colour="black", alpha=alpha)+ 
+            ggtitle(df$group)+ xlab(x.lab)+
+            scale_y_continuous(name= y.lab, as.numeric(names(table(df$value))))+ 
+            theme_nogrid()
           return(plot1)}
         {
           plotGroup<-by(y1,y1$group, plot1)

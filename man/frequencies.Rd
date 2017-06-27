@@ -8,7 +8,8 @@ Quick frequencies and proportions table}
 \description{This function generates a quick frequencies or proportions table. Useful for freqbubble function  
 }
 \usage{
-frequencies(df, group = NULL, missing = TRUE, prop = FALSE, round1 = 2)
+frequencies(df, group = NULL, missing = TRUE, prop = FALSE,
+            round1 = 2, bubbleSize= c(2, 30))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,6 +25,8 @@ Logical. If TRUE proportions are displayed instead of frequencies}
   \item{round1 }{
 Rounds values. default=2}
 }
+\item{bubbleSize}{
+bubble size range, default = c(2, 30)}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }

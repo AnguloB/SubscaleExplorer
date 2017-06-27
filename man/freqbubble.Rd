@@ -7,7 +7,10 @@ Freqbubble for frequencies and proportions
 \description{
 Freqbubble using frequencies object }
 \usage{
-(df, color = "#666699", title = "", x.lab = "", y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12) 
+freqbubble(df, number=TRUE,color = "#666699",
+          title = "", x.lab = "", y.lab = "Response",
+          angle = 45, alpha = 0.3, lsize = 12,  xOrder1 = TRUE, 
+          sizeBubble = c(2, 30), legend= TRUE, numberSize=3) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -15,6 +18,8 @@ Freqbubble using frequencies object }
 object created by function (\code{\link{frequencies}})}
   \item{color}{
 bubble color when there is no group (default = "#666699") }
+\item{number}{
+label proportions (default = TRUE) }
   \item{title}{
 default empty, character}
   \item{x.lab}{
@@ -29,8 +34,12 @@ transparence (default 0.3)}
 letter size (default 12)}
   \item{xOrder}{
 x labels should be alphabetically ordered? (default TRUE)}
-\item{sizeBubble}{
+\item{bubbleSize}{
 bubble size range, default = c(2, 30)}
+\item{legend}{
+legend should be plot?, default = TRUE}
+\item{numberSize}{
+number size, default= 3}
 }
 
 \value{
