@@ -50,7 +50,7 @@ violinPlot <-
         }}
       }
     if (is.null(group)) { #plot when there is no group
-      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, colour="black", alpha=alpha)+ 
+      k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, trim=FALSE,colour="black", alpha=alpha)+ 
         scale_y_continuous(name= y.lab, breaks=as.numeric(names(table(df3$value))))+xlab("") +geom_boxplot(width=.1)+
         labs(list(title = title1))+     
         theme_nogrid()
