@@ -1,4 +1,4 @@
-freqbubble<-function (df, group = FALSE, number=TRUE,color = "#666699", title = "", x.lab = "", 
+freqbubble<-function (df, group = FALSE, numbers=TRUE,color = "#666699", title = "", x.lab = "", 
                       y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, 
                       xOrder1 = TRUE, sizeBubble = c(2, 30), legend= TRUE, numberSize=3) 
 {
@@ -56,9 +56,8 @@ freqbubble<-function (df, group = FALSE, number=TRUE,color = "#666699", title = 
         scale_size_continuous(name = (dd),range = sizeBubble) + xlab(x.lab) + ylab(y.lab) + 
         ggtitle(title1) + scale_y_discrete()+
         theme_nogrid()
-      if(number ==TRUE){
+      if(numbers ==TRUE){
         plot1<-plot1 + geom_text(color="black", size= numberSize)}
-      
       
       if(legend==FALSE){ 
         plot1<-plot1+ theme(legend.position="none")
