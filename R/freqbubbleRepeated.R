@@ -1,12 +1,24 @@
 freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", 
-                               Wave2 = "Wave2",  x.lab = "", 
-                              y.lab = "Response",bubbleSize =c(2,30)) 
+                              Wave2 = "Wave2",  x.lab = "", 
+                              y.lab = "Response",bubbleSize =c(2,30), xOrder=TRUE) 
 {
   {
     require(ggplot2)
     require(reshape2)
-    z1 <- melt(df1, na.rm = TRUE)
-    z2 <- melt(df2, na.rm = TRUE)
+    
+    if (xOrder == TRUE) {
+      df1 <- df1[sort(rownames(df1)), ]
+      df2 <- df2[sort(rownames(df2)), ]
+    }
+    else {
+      if (xOrder == FALSE) {
+        df1 <- df1
+        df2 <- df2
+      }
+    }
+    
+    z1 <<- melt(df1, na.rm = TRUE)
+    z2 <<- melt(df2, na.rm = TRUE)
     dat1 <- data.frame(z1, z2)
     dat1 <- within(dat1, {
       variable.1 <- NULL
@@ -53,10 +65,10 @@ freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wa
   }
   {
     plot1 <- ggplot(dat3, aes(x = variable, y = value, size = 1, color = Type)) +
-      geom_point(aes(size = f1, color = Type), shape = 19, alpha = 0.5) + 
+      geom_point(aes(size = f1, color = Type), shape = 19, alpha = 0.3) + 
       xlab(x.lab) + ylab(y.lab)+
       scale_size_continuous(name = (dd), range = bubbleSize) +
-     scale_y_discrete(labels = (g2)) + 
+      scale_y_discrete(labels = (g2)) + 
       scale_colour_manual(values = c(color1, color2), label = c(Wave1, Wave2)) +
       theme_nogrid()
     print(plot1)

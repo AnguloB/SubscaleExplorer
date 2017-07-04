@@ -1,6 +1,6 @@
 freqbubble<-function (df, group = FALSE, numbers=TRUE,color = "#666699", title = "", x.lab = "", 
                       y.lab = "Response", angle = 45, alpha = 0.3, lsize = 12, 
-                      xOrder1 = TRUE, sizeBubble = c(2, 30), legend= TRUE, numberSize=3) 
+                      xOrder1 = TRUE, bubbleSize = c(2, 30), legend= TRUE, numberSize=3) 
 {
   require(ggplot2)
   require(plyr)
@@ -53,7 +53,7 @@ freqbubble<-function (df, group = FALSE, numbers=TRUE,color = "#666699", title =
     {
       plot1 <- ggplot(data = z, aes(x = variable, y = value, size = Freq, label=Freq)) + 
         geom_point(aes(size = Freq, stat = "identity", position = "identity"), shape = 20, color = color, alpha = alpha) + 
-        scale_size_continuous(name = (dd),range = sizeBubble) + xlab(x.lab) + ylab(y.lab) + 
+        scale_size_continuous(name = (dd),range = bubbleSize) + xlab(x.lab) + ylab(y.lab) + 
         ggtitle(title1) + scale_y_discrete()+
         theme_nogrid()
       if(numbers ==TRUE){
