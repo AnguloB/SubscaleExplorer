@@ -1,6 +1,6 @@
 freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", 
                               Wave2 = "Wave2",  x.lab = "", 
-                              y.lab = "Response", xOrder=TRUE, bubbleSize =c(2,30)) 
+                              y.lab = "Response", xOrder=TRUE, legendLab= "Group",  bubbleSize =c(2,30)) 
 {
   {
     require(ggplot2)
@@ -69,7 +69,7 @@ freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wa
       xlab(x.lab) + ylab(y.lab)+
       scale_size_continuous(name = (dd), range = bubbleSize) +
       scale_y_discrete(labels = (g2)) + 
-      scale_colour_manual(values = c(color1, color2), label = c(Wave1, Wave2)) +
+      scale_colour_manual(name=legendLab, values = c(color1, color2), label = c(Wave1, Wave2)) +
       theme_nogrid()
     print(plot1)
   }
