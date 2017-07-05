@@ -32,7 +32,7 @@ function(df, group=NULL, pattern=FALSE,showNA=FALSE){
       names(j1)<- c( "Description",  "Freq", "Prop")
       row.names(j1)<- NULL
       a<-as.data.frame(which(!rowSums(!is.na(f))))
-      names(a)<- ("Rows with completely missing data")
+      names(a)<- (" id case with completely missing data")
       row.names(a)<- NULL
       kl<-apply(f,2,function(x)(sum(is.na(x))))
       kl1<-as.data.frame(kl)
