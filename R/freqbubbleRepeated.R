@@ -1,6 +1,6 @@
 freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", 
                               Wave2 = "Wave2",  x.lab = "", 
-                              y.lab = "Response",bubbleSize =c(2,30), xOrder=TRUE) 
+                              y.lab = "Response", xOrder=TRUE, bubbleSize =c(2,30)) 
 {
   {
     require(ggplot2)
