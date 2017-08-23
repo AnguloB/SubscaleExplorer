@@ -18,11 +18,11 @@ freqbubble<-function (df, group = FALSE, numbers=TRUE,color = "#666699", title =
         df1 <- df1
       }
     }
-    z <<- melt(df1, na.rm = TRUE)
+    z <- melt(df1, na.rm = TRUE)
     names(z) <- c("variable", "value", "Freq")
     if (any(is.na(z$value))) {
       g <- as.character(factor(unique(z$value)))
-      g1 <<- c(g, "NA")
+      g1 <- c(g, "NA")
       g2 <- as.character(na.omit(g1))
     }
     else {
@@ -40,7 +40,7 @@ freqbubble<-function (df, group = FALSE, numbers=TRUE,color = "#666699", title =
     }
     z$variable <- factor(z$variable, levels = unique(z$variable))
     z$value <- factor(z$value)
-    g <<- as.character(factor(unique(z$value)))
+    g <- as.character(factor(unique(z$value)))
     g1 <- c(g, "NA")
     g2 <- as.character(na.omit(g1))
     

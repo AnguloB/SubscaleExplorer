@@ -17,8 +17,8 @@ freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wa
       }
     }
     
-    z1 <<- melt(df1, na.rm = TRUE)
-    z2 <<- melt(df2, na.rm = TRUE)
+    z1 <- melt(df1, na.rm = TRUE)
+    z2 <- melt(df2, na.rm = TRUE)
     dat1 <- data.frame(z1, z2)
     dat1 <- within(dat1, {
       variable.1 <- NULL
