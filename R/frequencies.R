@@ -6,14 +6,10 @@ function(df, group=NULL, missing=TRUE , prop=FALSE, round1=2){
       if (prop1==TRUE) {
         t <-melt(df, na.rm=FALSE)
         u<-table(t, exclude=NULL)
-        w<-round(prop.table(u,1), round1)
-        n<-dim(w)[1]
-        answer1<-w[1:(n-1),]}
+        answer1<-round(prop.table(u,1), round1)}
       else {if(prop1==FALSE){
         t <-melt(df, na.rm=FALSE)
-        w<-table(t, exclude=NULL)
-        n<-dim(w)[1]
-        answer1<-w[1:(n-1),]}}}
+        answer1<-table(t, exclude=NULL)}}}
     else  { if (missing1==FALSE) {
       if (prop1==TRUE) {
         t <-melt(df)
