@@ -7,7 +7,7 @@ Freqbubble for frequencies and proportions
 \description{
 Freqbubble using frequencies object }
 \usage{
-freqbubble(df, number=TRUE,color = "#666699",
+freqbubble(df, numbers=TRUE,color = "#666699",
           title = "", x.lab = "", y.lab = "Response",
           angle = 45, alpha = 0.3, lsize = 12,  xOrder1 = TRUE, 
           sizeBubble = c(2, 30), legend= TRUE, numberSize=3) 
@@ -18,7 +18,7 @@ freqbubble(df, number=TRUE,color = "#666699",
 object created by function (\code{\link{frequencies}})}
   \item{color}{
 bubble color when there is no group (default = "#666699") }
-\item{number}{
+\item{numbers}{
 label proportions (default = TRUE) }
   \item{title}{
 default empty, character}
