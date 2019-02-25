@@ -55,7 +55,7 @@ violinPlot <-
       
       if( length(as.numeric(names(table(df3$value))))>=15)
       {
-        breaks1<-round(seq(min(as.numeric(names(table(df3$value)))),max(as.numeric(names(table(df3$value)))), length.out = numBreaks),1)
+        breaks1<-trunc(seq(min(as.numeric(names(table(df3$value)))),max(as.numeric(names(table(df3$value)))), length.out = numBreaks))
       }
       
       else{ breaks1<-  length(as.numeric(names(table(df3$value))))}
@@ -91,7 +91,7 @@ violinPlot <-
       
       if( length(as.numeric(names(table(y1$value))))>=15)
       {
-        breaks1<-round(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks),1)
+        breaks1<-trunc(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks))
       }
       
       else{ breaks1<-  length(as.numeric(names(table(y1$value))))}

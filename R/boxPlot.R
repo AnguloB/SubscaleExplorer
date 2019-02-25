@@ -92,7 +92,7 @@ boxPlot <-
       
       if( length(as.numeric(names(table(y1$value))))>=15)
       {
-        breaks1<-round(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks),1)
+        breaks1<-trunc(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks))
       }
       
       else{ breaks1<-  length(as.numeric(names(table(y1$value))))}
@@ -109,7 +109,7 @@ boxPlot <-
         plot1 <- function(df, color1=color){
           if( length(as.numeric(names(table(df$value))))>=15)
           {
-            breaks1<-round(seq(min(as.numeric(names(table(df$value)))),max(as.numeric(names(table(df$value)))), length.out = numBreaks),1)
+            breaks1<-trunc(seq(min(as.numeric(names(table(df$value)))),max(as.numeric(names(table(df$value)))), length.out = numBreaks))
           }
           plot1<-ggplot(df, aes(x=variable, y=value))+
             geom_boxplot(fill=color1, colour="black", alpha=alpha)+ 
