@@ -110,7 +110,7 @@ violinPlot <-
           
           if( length(as.numeric(names(table(df$value))))>=15)
           {
-            breaks1<-round(seq(min(as.numeric(names(table(df$value)))),max(as.numeric(names(table(df$value)))), length.out = numBreaks),1)
+            breaks1<-trunc(seq(min(as.numeric(names(table(df$value)))),max(as.numeric(names(table(df$value)))), length.out = numBreaks))
           }
           
           plot1 <- ggplot(df, aes(x = variable, y = value)) + 
