@@ -4,11 +4,10 @@
 \title{
 Violin plot}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+Produce a quick violin plot with a boxplot inside from a data frame or matrix and if wanted a vector with group membership}
 \usage{
 violinPlot(df, group=NULL, same=TRUE, missing=TRUE, color="#F4A460", group1="Group1",
-group2="Group2", legendLab="Group", title1="Title")
+group2="Group2", legendLab="Group", title1="Title", numBreaks=10)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -30,6 +29,9 @@ default NULL uses factor levels as group membership label.Else list (p.eg c("gro
 Legend title label (default="Group")}
 \item{title1}{
 Plot title (default=NULL)
+}
+\item{numBreaks}{
+when there are more than 15 response values breaks are modified for better visualization (default=10)
 }
 }
 \details{

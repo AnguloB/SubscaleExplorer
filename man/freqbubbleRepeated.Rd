@@ -26,7 +26,7 @@ bubble color group 2, default = "#9999CC"}
 label for wave 1}
   \item{Wave2}{
 label for wave 2}
-\item{sizeBubble}{
+\item{bubbleSize}{
 bubble size range, default = c(2, 30)}
 }
 \item{x.lab}{

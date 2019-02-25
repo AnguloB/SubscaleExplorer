@@ -1,5 +1,7 @@
 boxPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460", x.lab= "", y.lab="",labList=TRUE, legendLab="Group", title1="", xOrder=TRUE, alpha= 0.3, colorBox="Spectral"){
+  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",
+           x.lab= "", y.lab="",labList=TRUE, legendLab="Group", title1="",
+           xOrder=TRUE, alpha= 0.3, colorBox="Spectral", numBreaks=10){
     require(ggplot2)
     require(reshape2)
     require(plyr)
@@ -52,8 +54,15 @@ boxPlot <-
       }
     
     if (is.null(group)) {
+      
+      if( length(as.numeric(names(table(df3$value))))>=15)
+      {
+        breaks1<-round(seq(min(as.numeric(names(table(df3$value)))),max(as.numeric(names(table(df3$value)))), length.out = numBreaks),1)
+      }
+      
+      else{ breaks1<-  length(as.numeric(names(table(df3$value))))}
       k<-ggplot(df3, aes(x=variable, y=value))+geom_boxplot(fill=color, colour="black", alpha = alpha)+
-        scale_y_continuous(name=y.lab, breaks=as.numeric(names(table(df3$value))))+xlab(x.lab)+
+        scale_y_continuous(name=y.lab, breaks=breaks1)+xlab(x.lab)+
         labs(list(title = title1))+
         theme_nogrid()
       warning("no grouping variable requested")
@@ -80,9 +89,16 @@ boxPlot <-
       else
         if(missing==FALSE) {
           y1 <- na.omit(y)}
+      
+      if( length(as.numeric(names(table(y1$value))))>=15)
+      {
+        breaks1<-round(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks),1)
+      }
+      
+      else{ breaks1<-  length(as.numeric(names(table(y1$value))))}
       if(out=="default"){
         p<-ggplot(y1, aes(variable, value)) + geom_boxplot(aes(fill = group))+
-          scale_y_continuous(name= y.lab, as.numeric(names(table(y1$value))))+
+          scale_y_continuous(name= y.lab, breaks1)+
           scale_fill_brewer(name=legendLab,palette=colorBox)+
           xlab(x.lab)+ labs(list(title = title1))+
           theme_nogrid()
@@ -91,10 +107,14 @@ boxPlot <-
         
       {if(out=="rearrange"){
         plot1 <- function(df, color1=color){
+          if( length(as.numeric(names(table(df$value))))>=15)
+          {
+            breaks1<-round(seq(min(as.numeric(names(table(df$value)))),max(as.numeric(names(table(df$value)))), length.out = numBreaks),1)
+          }
           plot1<-ggplot(df, aes(x=variable, y=value))+
             geom_boxplot(fill=color1, colour="black", alpha=alpha)+ 
             ggtitle(df$group)+ xlab(x.lab)+
-            scale_y_continuous(name= y.lab, as.numeric(names(table(df$value))))+ 
+            scale_y_continuous(name= y.lab, breaks1)+ 
             theme_nogrid()
           return(plot1)}
         {

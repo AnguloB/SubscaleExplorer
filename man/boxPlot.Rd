@@ -6,7 +6,7 @@ Produce a quick boxplot }
 \description{
 Produce a quick boxplot from a data frame or matrix and if wanted a vector with group membership.}
 \usage{
-boxPlot(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE)
+boxPlot(df, group=NULL, out="default", missing=TRUE, color="#F4A460", labList=TRUE, legendLab="Group", title1="", xOrder=TRUE, numBreaks=10)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,6 +41,9 @@ Plot title (default="")
 x labels ordered alphabetically (default=TRUE)
 }
 
+\item{numBreaks}{
+when there are more than 15 response values breaks are modified for better visualization (default=10)
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
