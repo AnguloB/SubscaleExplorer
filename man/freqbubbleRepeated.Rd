@@ -33,7 +33,8 @@ default empty}
   \item{y.lab}{
 default "response"}
 \details{
-Only valid for two waves}
+Only valid for two waves
+}
 \value{
 plot
 }
@@ -46,7 +47,6 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 \note{
 %%  ~~further notes~~
 }
-
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
