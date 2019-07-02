@@ -58,7 +58,7 @@ violinPlot <-
         breaks1<-trunc(seq(min(as.numeric(names(table(df3$value)))),max(as.numeric(names(table(df3$value)))), length.out = numBreaks))
       }
       
-      else{ breaks1<-  length(as.numeric(names(table(df3$value))))}
+      else{ breaks1<-  as.numeric(names(table(df3$value)))}
       k<-ggplot(df3, aes(x=variable, y=value))+geom_violin(fill=color, trim=FALSE,colour="black", alpha=alpha)+ 
         scale_y_continuous(name= y.lab, breaks=breaks1)+xlab("") +geom_boxplot(width=.1)+
         labs(list(title = title1))+     
@@ -94,7 +94,7 @@ violinPlot <-
         breaks1<-trunc(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks))
       }
       
-      else{ breaks1<-  length(as.numeric(names(table(y1$value))))}
+      else{ breaks1<-  as.numeric(names(table(y1$value)))}
       
       if(out=="default"){ #all groups in the same graph
         dodge <- position_dodge(width = 0.8)

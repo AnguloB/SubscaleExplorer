@@ -60,7 +60,7 @@ boxPlot <-
         breaks1<-trunc(seq(min(as.numeric(names(table(df3$value)))),max(as.numeric(names(table(df3$value)))), length.out = numBreaks))
       }
       
-      else{ breaks1<-  length(as.numeric(names(table(df3$value))))}
+      else{ breaks1<-  as.numeric(names(table(df3$value)))}
       k<-ggplot(df3, aes(x=variable, y=value))+geom_boxplot(fill=color, colour="black", alpha = alpha)+
         scale_y_continuous(name=y.lab, breaks=breaks1)+xlab(x.lab)+
         labs(list(title = title1))+
@@ -95,7 +95,7 @@ boxPlot <-
         breaks1<-trunc(seq(min(as.numeric(names(table(y1$value)))),max(as.numeric(names(table(y1$value)))), length.out = numBreaks))
       }
       
-      else{ breaks1<-  length(as.numeric(names(table(y1$value))))}
+      else{ breaks1<-  as.numeric(names(table(y1$value)))}
       if(out=="default"){
         p<-ggplot(y1, aes(variable, value)) + geom_boxplot(aes(fill = group))+
           scale_y_continuous(name= y.lab, breaks1)+
