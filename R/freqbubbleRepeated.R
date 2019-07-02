@@ -1,4 +1,4 @@
-freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#9999CC", Wave1 = "Wave1", 
+freqbubbleRepeated<-function (df1, df2, color1 = "black", color2 = "#FA7268", Wave1 = "Wave1", 
                               Wave2 = "Wave2",  x.lab = "", 
                               y.lab = "Response", xOrder=TRUE, legendLab= "Group",  bubbleSize =c(2,30)) 
 {

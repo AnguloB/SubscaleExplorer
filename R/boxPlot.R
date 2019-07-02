@@ -1,7 +1,7 @@
 boxPlot <-
-  function(df, group=NULL, out="default", missing=TRUE, color="#F4A460",
+  function(df, group=NULL, out="default", missing=TRUE, color="#FA7268",
            x.lab= "", y.lab="",labList=TRUE, legendLab="Group", title1="",
-           xOrder=TRUE, alpha= 0.3, colorBox="Spectral", numBreaks=10){
+           xOrder=TRUE, alpha= 0.9, colorBox="Spectral", numBreaks=10){
     require(ggplot2)
     require(reshape2)
     require(plyr)
