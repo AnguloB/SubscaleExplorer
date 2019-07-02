@@ -32,13 +32,14 @@ bubble size range, default = c(2, 30)}
 default empty}
   \item{y.lab}{
 default "response"}
+}
 \details{
 Only valid for two waves
 }
 \value{
 plot
 }
-}
+
 \references{
 %% ~put references to the literature/web site here ~
 }
