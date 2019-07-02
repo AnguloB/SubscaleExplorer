@@ -24,9 +24,9 @@ Logical. TRUE (default) missing displayed}
 Logical. If TRUE proportions are displayed instead of frequencies}
   \item{round1 }{
 Rounds values. default=2}
-}
 \item{bubbleSize}{
 bubble size range, default = c(2, 30)}
+}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }

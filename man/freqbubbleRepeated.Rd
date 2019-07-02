@@ -28,7 +28,6 @@ label for wave 1}
 label for wave 2}
 \item{bubbleSize}{
 bubble size range, default = c(2, 30)}
-}
 \item{x.lab}{
 default empty}
   \item{y.lab}{
@@ -37,6 +36,7 @@ default "response"}
 Only valid for two waves}
 \value{
 plot
+}
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -48,8 +48,6 @@ Ariadna Angulo-Brunet (ariadna.angulo@uab.cat), Carme Viladrich}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
-
-
 
 \seealso{
  \code{\link{frequencies}},  \code{\link{freqbubble}}
