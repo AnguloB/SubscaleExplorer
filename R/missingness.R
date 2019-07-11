@@ -70,21 +70,21 @@ missingness<-
       if(nrow(mdp)<=2){
         mdp1<- c("All items have been answered")}
       output1<-list(j1, gg)
-      names(output1)<- c("General Summary", "Variable summary")
+      names(output1)<- c("General summary", "Variable summary")
       
       if(casesAllMissing==TRUE) {
         if(nrow(a)>=1){
           output1<-list(j1,gg,  a)
-          names(output1)<- c("General Summary", "Variable summary", "cases with completely missing data")
+          names(output1)<- c("General summary", "Variable summary", "cases with completely missing data")
         }
         else{
           if(nrow(a)==0){
             output1<-list(j1,gg,  c("No rows with completely missing data"))
-            names(output1)<- c("General Summary", "Variable summary", "cases with completely missing data")
+            names(output1)<- c("General summary", "Variable summary", "cases with completely missing data")
           }}}
       if(pattern1==TRUE){
         output1<-list(j1, gg, mdp1)
-        names(output1)<- c("General Summary", "Variable summary",  "Pattern")
+        names(output1)<- c("General summary", "Variable summary",  "Pattern")
         
       }
       return(output1)   }
