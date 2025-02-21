@@ -2,7 +2,7 @@ designEffect <-function (df, cluster = NULL, data = df, round1 = 3)
 {
     require(multilevel)
     require(reshape2)
-    if (sum(count(unique(cluster))[2]) <= 19) {
+  if (length(unique(cluster)) <= 19) {
         warning("There are less than 20 clusters")
     }
     if (is.null(cluster) == TRUE) {
