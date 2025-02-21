@@ -1,6 +1,5 @@
-designEffect <-function(data=df,  cluster=NULL, round1=3)
+designEffect <-function(df, cluster=NULL, data=df,  round1=3)
   {
-  df <- data
   require(multilevel)
   require(reshape2)
   if (sum(count(unique(cluster))[2])<=19){
